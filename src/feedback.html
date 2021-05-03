@@ -1,0 +1,507 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <style>
+     @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+/* @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css); */
+body {
+  background: #e2e2e2;
+  width: 98%;
+  height: 100vh;
+  background-image: url('banner-bg-choose.png');
+}
+body .card {
+  
+  width: 800px;
+  height: 400px;
+  background: transparent;
+  /* padding: 100px; */
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
+}
+body .card_left {
+  width: 40%;
+  height: 400px;
+  float: left;
+  overflow: hidden;
+  background: transparent;
+ 
+}
+
+body .card_left img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  position: relative;
+}
+body .card_right {
+  /* padding-top: 100px; */
+  
+  width: 60%;
+  float: left;
+  background: #000000;
+  height: 400px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+}
+body .card_right h1 {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  font-size: 40px;
+  margin: 30px 0 0 0;
+  padding: 0 0 0 40px;
+  letter-spacing: 1px;
+}
+body .card_right__details ul {
+  list-style-type: none;
+  padding: 0 0 0 40px;
+  margin: 10px 0 0 0;
+}
+body .card_right__details ul li {
+  display: inline;
+  color: #e3e3e3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 0px 0 0;
+}
+
+body .card_right__review p {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  padding: 0 40px 0 40px;
+  letter-spacing: 1px;
+  margin: 10px 0 10px 0;
+  line-height: 20px;
+}
+body .card_right__review a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  padding: 0 0 0 40px;
+  color: #ffda00;
+  margin: 0;
+}
+body .card_right__button {
+  padding: 0 0 0 40px;
+  margin: 30px 0 0 0;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+svg {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+svg path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 250px;
+  /* z-index: 2; */
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav class="menu">
+      <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+      
+      <label for="menu__toggle" class="menu__toggle-label">
+        
+        <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+          <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+        </svg>
+        <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+          <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+      </label>
+      <ol class='menu__content'>
+        <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+        <h1 style="margin-left: 90px;">Hi</h1>
+        <div id="name_of_student"></div>
+        <br><br><br>
+        <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Home</a></li>
+        <li class="menu-item">
+          <i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Information</a>
+          <ol class="sub-menu">
+            <li class="menu-item"><i class="fa fa-upload"></i>&nbsp;<a href="index1.html">Upload Information</a></li>
+            <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="view_information.html">View Information</a></li>
+          </ol>
+        </li>
+        <li class="menu-item">
+          <i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./documents/main.html">Documents</a>
+          <ol class="sub-menu">
+            <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="./documents/acad/acad.html">Academics</a></li>
+            <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="./documents/health/healthcare.html">Health</a></li>
+            <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="./documents/work/work.html">Office</a></li>
+            <li class="menu-item"><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="./documents/bank/bank.html">Bank and Insurance</a></li>
+            <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="./documents/Govt Doc/govt.html">Govt. Documents</a></li>
+            <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="./documents/photo/photo.html">Other</a></li>
+          </ol>
+        </li>
+        <li class="menu-item">
+          <i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="./Project/project.html">Project Details</a>
+          
+        </li>
+        <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="feedback.html">View Feedback</a></li>
+        <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="analytics.html">Analytics</a></li>
+        <li class="menu-item">
+          <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./view-user-info.html">My Account</a>
+          <ol class="sub-menu">
+            <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="./view-user-info.html">View</a></li>
+            <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="change_password.html">Change Password</a></li>
+            <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="logout.html">Logout</a></li>
+            
+          </ol>
+        </li>
+      </ol>
+     
+    </nav>
+    <script>
+      $(document).ready(function(){
+       
+       // Add new element
+       fetch("/users/me",{
+         method:"get",
+         headers:{
+           'Accept': 'application/json',
+                               'Content-Type':'application/json',
+                               'Authorization': `Bearer ${localStorage.getItem('token')}`
+         },
+       }).then((response)=>{
+         return response.json();
+       }).then(data=>{
+         let html=``;
+              html=html+`<h1 style="margin-left:40px;">${data.name}</h1>`;
+               
+              
+               document.getElementById("name_of_student").innerHTML = html;
+     
+              })
+          });
+          </script>
+    <img src="feedback-top.png" style="margin-left: 350px;">
+    <br><br><br><br><br>
+    <div id="result"></div>
+    
+    
+
+    <script>
+      $(document).ready(function(){
+     
+     // Add new element
+     fetch("/feedback",{
+       method:"get",
+       headers:{
+         'Accept': 'application/json',
+                             'Content-Type':'application/json',
+                             'Authorization': `Bearer ${localStorage.getItem('token')}`
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then(data=>{
+       var i=1;
+       let html=``;
+       data.forEach((ele)=>{
+         html=html+`<div class='card'>      <div class="one">      <div class='card_left'>        <img src='feedback.jpg'>      </div>      <div class='card_right'>        <h1>Feedback-${i}</h1>        <div class='card_right__details'>          <ul>            <li>By-</li>          </ul>          <ul>            <li style="font-size: 30px;">${ele.recruiter}</li>          </ul>         <br>          <div class='card_right__rating'>            <div class='card_right__rating__stars'>              <ul>                <li style="font-size: 40px;">${ele.rating}/5</li>                <li> <img src="307-3078264_star-rating-icon-rating-star-single-png.png" alt="Girl in a jacket"  id="star_rating" width="50" height="40" ></li>                </ul>                           <br>                          </div>          </div>          <div class='card_right__review'>            <p>${ele.review}</p>                      </div>                  </div>      </div>      </div>    </div>    <br><br><br>`;
+         i=i+1;
+        })
+       document.getElementById("result").innerHTML = html;
+      })
+      
+    })
+    </script>
+    
+  </body>
+</html>

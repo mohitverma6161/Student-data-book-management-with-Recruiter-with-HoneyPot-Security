@@ -1,0 +1,1087 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <!-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/> -->
+        
+            <!-- <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+        <style>
+       @import url("https://fonts.googleapis.com/css?family=Lato");
+
+svg {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+svg path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 250px;
+  /* z-index: 2; */
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+        </style>
+       <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    </head>
+      <body>
+
+        <!-- <div id="five">
+            <div class="container-contact100" >
+                
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" id="submit">
+                        <span>
+                            Click here to view your details
+                            <i class="zmdi zmdi-arrow-right m-l-8"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+         
+          <div class="row" id="cards" style="background-color: #F4F4F4;padding: 40px">
+
+
+        </div> -->
+        <nav class="menu">
+          <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+          
+          <label for="menu__toggle" class="menu__toggle-label">
+            
+            <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+              <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+            </svg>
+            <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+              <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+          </label>
+          <ol class='menu__content'>
+            <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+            <h1 style="margin-left: 90px;">Hi</h1>
+            <div id="name_of_student"></div>
+            <br><br><br>
+            <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="home1.html">Home</a></li>
+            <li class="menu-item">
+              <i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="read_personal.html">View Information</a>
+             
+            </li>
+            <li class="menu-item">
+              <i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./documents/main.html">Documents</a>
+              <ol class="sub-menu">
+                <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="./documents/acad/acad.html">Academics</a></li>
+                <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="./documents/health/healthcare.html">Health</a></li>
+                <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="./documents/work/work.html">Office</a></li>
+                <li class="menu-item"><i class="fa fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="./documents/bank/bank.html">Bank and Insurance</a></li>
+                <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="./documents/Govt Doc/govt.html">Govt. Documents</a></li>
+                <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="./documents/photo/photo.html">Other</a></li>
+              </ol>
+            </li>
+            <li class="menu-item">
+              <i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="./Project/project.html">View Project Details</a>
+              
+            </li>
+            <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="feedback.html">Give Feedback</a></li>
+            <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="view_analytics.html">View Analytics</a></li>
+            <li class="menu-item">
+              <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./view-user-info.html">My Account</a>
+              <ol class="sub-menu">
+                <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="./view-user-info.html">View</a></li>
+                <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="change_password.html">Change Password</a></li>
+                <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="logout.html">Logout</a></li>
+                
+              </ol>
+            </li>
+          </ol>
+         
+        </nav>
+        <script>
+          $(document).ready(function(){
+           
+           // Add new element
+           fetch("/recruiteruser/me",{
+             method:"get",
+             headers:{
+               'Accept': 'application/json',
+                                   'Content-Type':'application/json',
+                                   'Authorization': `Bearer ${localStorage.getItem('token')}`
+             },
+           }).then((response)=>{
+             return response.json();
+           }).then(data=>{
+             let html=``;
+                  html=html+`<h1 style="margin-left:40px;">${data.name}</h1>`;
+                   
+                  
+                   document.getElementById("name_of_student").innerHTML = html;
+         
+                  })
+              });
+              </script>
+        <div style="background-image: url(banner-bg-choose.png);">
+        <div class="container-contact100-form-btn">
+            <!-- <button class="contact100-form-btn" id="submit" style="margin-top: 50px;">
+                <span>
+                    Click here to view your details
+                    <i class="zmdi zmdi-arrow-right m-l-8"></i>
+                </span>
+            </button> -->
+            
+        </div>
+    </div>
+        <h1 style="text-align: center;background-color: yellow;">Your Details</h1>
+        <!-- <div id="five">
+            <div class="container-contact100" >
+                
+               
+                <div class="wrap-contact100">
+                    <div class="contact100-form validate-form" id="cards">
+                        <span class="contact100-form-title">
+                            Personal info
+                        </span>
+        
+                       
+        
+                        
+                        
+                        <div class="row" id="cards" style="background-color: #F4F4F4;padding: 40px"></div>
+                        
+                       
+                        
+                            
+                    
+                        
+                    </div>
+                    </div>
+                
+            </div> -->
+            <div id="cards" style="background-image: url(banner-bg-choose.png);padding: 80px"></div>
+
+
+        
+        
+          <script>
+              window.onload = function () {
+                  fetch("/info",{
+                      method:"get",
+                      headers:{
+                        'Accept': 'application/json',
+                          'Content-Type':'application/json',
+                          'Authorization': `Bearer ${localStorage.getItem('token1')}`
+                      },
+
+                  }).then((response)=>{
+                      return response.json();
+                  }).then(data=>{
+                      console.log(data);
+                      //console.log(data[0].email);
+                      document.getElementById("cards").innerHTML = "";
+                    makeCard(data);
+                    makeCard1(data);
+                    makeCard2(data);
+                    makeCard3(data);
+                    makeCard4(data);
+                    makeCard5(data);
+                    })
+              }
+
+              function makeCard(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h1");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Personal info");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+        let name = document.createElement("div")
+        name.setAttribute("style", "padding : 10px 15px")
+        let nameHead = document.createTextNode("Name : " + ele.first_name+" "+ele.last_name)
+        name.appendChild(nameHead)
+        let age = document.createElement("div")
+        age.setAttribute("style", "padding : 10px 15px")
+        let ageHead = document.createTextNode("Email : " + ele.email)
+        age.appendChild(ageHead)
+        let desc = document.createElement("div")
+        desc.setAttribute("style", "padding : 10px 15px")
+        let descHead = document.createTextNode("Contact Number : " + ele.phone)
+        let father = document.createElement("div")
+        father.setAttribute("style", "padding : 10px 15px")
+        let fatherHead = document.createTextNode("Father Name : " + ele.father)
+        father.appendChild(fatherHead)
+        let mother = document.createElement("div")
+        mother.setAttribute("style", "padding : 10px 15px")
+        let motherHead = document.createTextNode("Mother Name : " + ele.mother)
+        mother.appendChild(motherHead)
+        let dob = document.createElement("div")
+        dob.setAttribute("style", "padding : 10px 15px")
+        let dobHead = document.createTextNode("date of Birth : " + ele.dob)
+        dob.appendChild(dobHead)
+        let gender = document.createElement("div")
+        gender.setAttribute("style", "padding : 10px 15px")
+        let genderHead = document.createTextNode("Gender : " + ele.gender)
+        gender.appendChild(genderHead)
+        let nationality = document.createElement("div")
+        nationality.setAttribute("style", "padding : 10px 15px")
+        let nationalityHead = document.createTextNode("Nationality : " + ele.nationality)
+        nationality.appendChild(nationalityHead)
+        let caste = document.createElement("div")
+        caste.setAttribute("style", "padding : 10px 15px")
+        let casteHead = document.createTextNode("Caste : " + ele.caste)
+        caste.appendChild(casteHead)
+        let address = document.createElement("div")
+        address.setAttribute("style", "padding : 10px 15px")
+        let addressHead = document.createTextNode("Address : " + ele.address)
+        address.appendChild(addressHead)
+        let city = document.createElement("div")
+        city.setAttribute("style", "padding : 10px 15px")
+        let cityHead = document.createTextNode("City : " + ele.city)
+        city.appendChild(cityHead)
+        let state = document.createElement("div")
+        state.setAttribute("style", "padding : 10px 15px")
+        let stateHead = document.createTextNode("State : " + ele.state)
+        state.appendChild(stateHead)
+        let pincode = document.createElement("div")
+        pincode.setAttribute("style", "padding : 10px 15px")
+        let pincodeHead = document.createTextNode("Pincode : " + ele.pincode)
+        pincode.appendChild(pincodeHead)
+
+        desc.appendChild(descHead)
+        col8.appendChild(name)
+        col8.appendChild(age)
+        col8.appendChild(desc)
+        col8.appendChild(father)
+        col8.appendChild(mother)
+        col8.appendChild(dob)
+        col8.appendChild(gender)
+        col8.appendChild(nationality)
+        col8.appendChild(caste)
+        col8.appendChild(address)
+        col8.appendChild(city)
+        col8.appendChild(state)
+        col8.appendChild(pincode)
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+
+
+    function makeCard1(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h1");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Academic Qualifications");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+        let degree = document.createElement("div")
+        degree.setAttribute("style", "padding : 10px 15px")
+        let degreeHead = document.createTextNode("Degree : " + ele.degree)
+        degree.appendChild(degreeHead)
+        let branch = document.createElement("div")
+        branch.setAttribute("style", "padding : 10px 15px")
+        let branchHead = document.createTextNode("Branch : " + ele.branch)
+        branch.appendChild(branchHead)
+        let college = document.createElement("div")
+        college.setAttribute("style", "padding : 10px 15px")
+        let collegeHead = document.createTextNode("College : " + ele.college)
+        college.appendChild(collegeHead)
+        let starting_year = document.createElement("div")
+        starting_year.setAttribute("style", "padding : 10px 15px")
+        let starting_yearHead = document.createTextNode("Starting year : " + ele.starting_year)
+        starting_year.appendChild(starting_yearHead)
+        let ending_year = document.createElement("div")
+        ending_year.setAttribute("style", "padding : 10px 15px")
+        let ending_yearHead = document.createTextNode("Ending year : " + ele.ending_year)
+        ending_year.appendChild(ending_yearHead)
+        let cgpa = document.createElement("div")
+        cgpa.setAttribute("style", "padding : 10px 15px")
+        let cgpaHead = document.createTextNode("CGPA : " + ele.cgpa)
+        cgpa.appendChild(cgpaHead)
+        let school = document.createElement("div")
+        school.setAttribute("style", "padding : 10px 15px")
+        let schoolHead = document.createTextNode("School : " + ele.school)
+        school.appendChild(schoolHead)
+        let board = document.createElement("div")
+        board.setAttribute("style", "padding : 10px 15px")
+        let boardHead = document.createTextNode("Board : " + ele.board)
+        board.appendChild(boardHead)
+        let starting_year_xii = document.createElement("div")
+        starting_year_xii.setAttribute("style", "padding : 10px 15px")
+        let starting_year_xiiHead = document.createTextNode("Starting Year : " + ele.starting_year_xii)
+        starting_year_xii.appendChild(starting_year_xiiHead)
+        let ending_year_xii = document.createElement("div")
+        ending_year_xii.setAttribute("style", "padding : 10px 15px")
+        let ending_year_xiiHead = document.createTextNode("Ending Year : " + ele.ending_year_xii)
+        ending_year_xii.appendChild(ending_year_xiiHead)
+        let cgpa_xii = document.createElement("div")
+        cgpa_xii.setAttribute("style", "padding : 10px 15px")
+        let cgpa_xiiHead = document.createTextNode("CGPA/PERCENTAGE : " + ele.cgpa_xii)
+        cgpa_xii.appendChild(cgpa_xiiHead)
+        let school_x = document.createElement("div")
+        school_x.setAttribute("style", "padding : 10px 15px")
+        let school_xHead = document.createTextNode("School : " + ele.school_x)
+        school_x.appendChild(school_xHead)
+        let board_x = document.createElement("div")
+        board_x.setAttribute("style", "padding : 10px 15px")
+        let board_xHead = document.createTextNode("Board : " + ele.board_x)
+        board_x.appendChild(board_xHead)
+        let starting_year_x = document.createElement("div")
+        starting_year_x.setAttribute("style", "padding : 10px 15px")
+        let starting_year_xHead = document.createTextNode("Starting Year : " + ele.starting_year_x)
+        starting_year_x.appendChild(starting_year_xHead)
+
+        let ending_year_x = document.createElement("div")
+        ending_year_x.setAttribute("style", "padding : 10px 15px")
+        let ending_year_xHead = document.createTextNode("Ending Year : " + ele.ending_year_x)
+        ending_year_x.appendChild(ending_year_xHead)
+        let cgpa_x = document.createElement("div")
+        cgpa_x.setAttribute("style", "padding : 10px 15px")
+        let cgpa_xHead = document.createTextNode("CGPA/PERCENTAGE : " + ele.cgpa_x)
+        cgpa_x.appendChild(cgpa_xHead)
+        
+
+        let higher=document.createElement("h2");
+        higher.setAttribute("style", "padding : 10px 15px")
+        let text3 = document.createTextNode("Higher Education completed or Pursuing");
+        higher.appendChild(text3);
+
+        let class_xii=document.createElement("h2");
+        class_xii.setAttribute("style", "padding : 10px 15px")
+        let text4 = document.createTextNode("Class XII");
+        class_xii.append(text4);
+        
+        let class_x=document.createElement("h2");
+        class_x.setAttribute("style", "padding : 10px 15px")
+        let text5 = document.createTextNode("Class X");
+        class_x.append(text5);
+
+
+        col8.appendChild(higher);
+        col8.appendChild(degree)
+        col8.appendChild(branch)
+        col8.appendChild(college)
+        col8.appendChild(starting_year)
+        col8.appendChild(ending_year)
+        col8.appendChild(cgpa)
+        col8.appendChild(class_xii)
+        col8.appendChild(school)
+        col8.appendChild(board)
+        col8.appendChild(starting_year_xii)
+        col8.appendChild(ending_year_xii)
+        col8.appendChild(cgpa_xii)
+        col8.appendChild(class_x)
+        col8.appendChild(school_x)
+        col8.appendChild(board_x)
+        col8.appendChild(starting_year_x)
+        col8.appendChild(ending_year_x)
+        col8.appendChild(cgpa_x)
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+
+    function makeCard2(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h1");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Parents Details");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+
+        let father_name = document.createElement("div")
+        father_name.setAttribute("style", "padding : 10px 15px")
+        let father_nameHead = document.createTextNode("Name : " + ele.father_name)
+        father_name.appendChild(father_nameHead)
+
+        let father_email = document.createElement("div")
+        father_email.setAttribute("style", "padding : 10px 15px")
+        let father_emailHead = document.createTextNode("Email : " + ele.father_email)
+        father_email.appendChild(father_emailHead)
+
+        let father_contact = document.createElement("div")
+        father_contact.setAttribute("style", "padding : 10px 15px")
+        let father_contactHead = document.createTextNode("Contact Number : " + ele.father_contact)
+        father_contact.appendChild(father_contactHead)
+
+        let father_occupation = document.createElement("div")
+        father_occupation.setAttribute("style", "padding : 10px 15px")
+        let father_occupationHead = document.createTextNode("Occupation : " + ele.father_occupation)
+        father_occupation.appendChild(father_occupationHead)
+
+        let mother_name = document.createElement("div")
+        mother_name.setAttribute("style", "padding : 10px 15px")
+        let mother_nameHead = document.createTextNode("Name : " + ele.mother_name)
+        mother_name.appendChild(mother_nameHead)
+
+        let mother_email = document.createElement("div")
+        mother_email.setAttribute("style", "padding : 10px 15px")
+        let mother_emailHead = document.createTextNode("Email : " + ele.mother_email)
+        mother_email.appendChild(mother_emailHead)
+
+        let mother_contact = document.createElement("div")
+        mother_contact.setAttribute("style", "padding : 10px 15px")
+        let mother_contactHead = document.createTextNode("Contact Number : " + ele.mother_contact)
+        mother_contact.appendChild(mother_contactHead)
+
+        let mother_occupation = document.createElement("div")
+        mother_occupation.setAttribute("style", "padding : 10px 15px")
+        let mother_occupationHead = document.createTextNode("Occupation : " + ele.mother_occupation)
+        mother_occupation.appendChild(mother_occupationHead)
+
+        let father_details=document.createElement("h2");
+        father_details.setAttribute("style", "padding : 10px 15px")
+        let text4 = document.createTextNode("Father details");
+        father_details.append(text4);
+        
+        let mother_details=document.createElement("h2");
+        mother_details.setAttribute("style", "padding : 10px 15px")
+        let text5 = document.createTextNode("Mother details");
+        mother_details.append(text5);
+
+        col8.appendChild(father_details)
+        col8.appendChild(father_name)
+        col8.appendChild(father_email)
+        col8.appendChild(father_contact)
+        col8.appendChild(father_occupation)
+        col8.appendChild(mother_details)
+        col8.appendChild(mother_name)
+        col8.appendChild(mother_email)
+        col8.appendChild(mother_contact)
+        col8.appendChild(mother_occupation)
+
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+
+    function makeCard3(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h2");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Your Skills");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        //divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+
+        let skills = document.createElement("div")
+        skills.setAttribute("style", "padding : 10px 15px")
+        let skillsHead = document.createTextNode("Skills " + ele.skills)
+        skills.appendChild(skillsHead)
+
+        let Extracurricular = document.createElement("div")
+        Extracurricular.setAttribute("style", "padding : 10px 15px")
+        let ExtracurricularHead = document.createTextNode("ExtraCurricular : " + ele.Extracurricular)
+        Extracurricular.appendChild(ExtracurricularHead)
+
+        let Accomplishments = document.createElement("div")
+        Accomplishments.setAttribute("style", "padding : 10px 15px")
+        let AccomplishmentsHead = document.createTextNode("Accomplishments : " + ele.Accomplishments)
+        Accomplishments.appendChild(AccomplishmentsHead)
+
+       
+
+        let accomplishment_details=document.createElement("h2");
+        accomplishment_details.setAttribute("style", "padding : 10px 15px")
+        let text4 = document.createTextNode("Your Accomplishments");
+        accomplishment_details.append(text4);
+        
+        let extra_details=document.createElement("h2");
+        extra_details.setAttribute("style", "padding : 10px 15px")
+        let text5 = document.createTextNode("Your ExtraCurricular Details");
+        extra_details.append(text5);
+        
+        col8.appendChild(h1);
+        col8.appendChild(skills);
+        col8.appendChild(extra_details);
+        col8.appendChild(Extracurricular);
+        col8.appendChild(accomplishment_details);
+        col8.appendChild(Accomplishments);
+       
+
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+
+
+    function makeCard4(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h1");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Other Details");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+
+        let LinkedIn = document.createElement("div")
+        LinkedIn.setAttribute("style", "padding : 10px 15px")
+        let LinkedInHead = document.createTextNode("LinkedIn id : " + ele.LinkedIn)
+        LinkedIn.appendChild(LinkedInHead)
+
+        let Gmail = document.createElement("div")
+        Gmail.setAttribute("style", "padding : 10px 15px")
+        let GmailHead = document.createTextNode("Gmail : " + ele.Gmail)
+        Gmail.appendChild(GmailHead)
+
+        let Github = document.createElement("div")
+        Github.setAttribute("style", "padding : 10px 15px")
+        let GithubHead = document.createTextNode("Githubr : " + ele.Github)
+        Github.appendChild(GithubHead)
+
+        col8.appendChild(LinkedIn);
+        col8.appendChild(Gmail);
+        col8.appendChild(Github);
+
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+    function makeCard5(data) {
+      data.forEach(ele => {
+        let divTop = document.createElement("div");
+        divTop.setAttribute("style", "padding : 10px");
+        divTop.setAttribute("class", "col-12 col-md-6 col-lg-4");
+        let divTopCover = document.createElement("div");
+        divTopCover.setAttribute("style", "background-color: #FFFFFF;border-radius: 50px;  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.2); padding : 20px;");
+        let divRowOne = document.createElement("div");
+        divRowOne.setAttribute("class", "row");
+        let oneCol6a = document.createElement("div");
+        oneCol6a.setAttribute("class", "col-6");
+        oneCol6a.setAttribute("style", "text-align : center")
+        let avail = document.createElement("div");
+        let h1=document.createElement("h1");
+        h1.setAttribute("style", "padding : 10px 15px")
+        let text2 = document.createTextNode("Your Work experience");
+        h1.appendChild(text2);
+        avail.setAttribute("class", "circle")
+        if (ele.AVAILABLE == true) {
+          avail.setAttribute("style", "background-color : green");
+          oneCol6a.appendChild(avail)
+        } else {
+          avail.setAttribute("style", "background-color : red");
+          oneCol6a.appendChild(avail)
+        }
+        let oneCol6b = document.createElement("div");
+        oneCol6b.setAttribute("class", "col-6");
+        oneCol6b.setAttribute("style", "text-align : center")
+        divRowOne.appendChild(oneCol6a);
+        divRowOne.appendChild(oneCol6b);
+        //divRowOne.appendChild(h1)
+        divTopCover.appendChild(divRowOne);
+        let divRowTwo = document.createElement("div");
+        divRowTwo.setAttribute("class", "row");
+        let col4 = document.createElement("div");
+        col4.setAttribute("class", "col-4")
+        let avatar = document.createElement("div");
+        avatar.setAttribute("class", "avatar");
+        col4.appendChild(avatar)
+        divRowTwo.appendChild(col4)
+        let col8 = document.createElement("div")
+        col8.setAttribute("class", "col-8")
+
+        let work_experience = document.createElement("div")
+        work_experience.setAttribute("style", "padding : 10px 15px")
+        let work_experienceHead = document.createTextNode(ele.work_experience)
+        work_experience.appendChild(work_experienceHead)
+
+        
+            col8.appendChild(h1);
+            col8.appendChild(work_experience);
+        
+
+        divRowTwo.appendChild(col8)
+        divTopCover.appendChild(divRowTwo);
+        // add at last 
+        divTop.appendChild(divTopCover);
+        document.getElementById("cards").appendChild(divTop)
+
+      })
+    }
+
+
+            
+           </script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+      </body>
+</html>

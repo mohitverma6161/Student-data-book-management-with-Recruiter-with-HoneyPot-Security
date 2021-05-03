@@ -1,0 +1,286 @@
+<html>
+<head>
+	<title>SignUp and Login</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script>
+		var check = function() {
+  if (document.getElementById('passwordSignUp').value ==
+    document.getElementById('ConfirmpasswordSignup').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Confirm password matches with Original password';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Confirm password does not matches with Original password';
+  }
+}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+
+<div class="container" id="container">
+<div class="form-container sign-up-container">
+
+<div name="Signup_form_foruser" class="form-type">
+	<h1>Create Account</h1>
+	<!-- <div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div> -->
+	<!-- <span>or use your email for registration</span> -->
+	<input  id="nameSignUp" name="nameSignUp" type="text" placeholder="Name:" />
+	<input  id="emailSignUp" name="emailSignUp" type="text" placeholder="Email:" />
+	<input  id="dobSignUp" name="dobSignup" type="text" placeholder="Date of Birth in dd/mm/yyyy" />
+	<input  id="passwordSignUp" name="passwordSignup" type="password" placeholder="Password:" />
+	<input  id="ConfirmpasswordSignup" name="ConfirmpasswordSignup" type="password" placeholder="Confirm Password:" onkeyup='check();'/>
+	<!-- <input type="text" name="name" id="nameSignup" placeholder="Name">
+	<input type="text" name="email" id="emailSignup" placeholder="Email">
+	<input type="text" name="Date-of-birth" id="dobSignup" placeholder="Date of Birth in dd/mm/yyyy">
+	<input type="password" name="password" id="passwordSignup" placeholder="Password" >
+	<input type="password" name="confirm-password" placeholder="Confirm Password"> -->
+	<!-- class="inputBox" -->
+	<span id='message'></span>
+	<br>
+	<button id="signup" onclick="myFunction()">SignUp</button>
+	
+	</div>
+</div>
+<div class="form-container sign-in-container">
+	<div name="Signin_form" class="form-type">
+		<h1>Sign In</h1>
+		<!-- <div class="social-container">
+		<a href="#" class="social"><i class="fa fa-facebook"></i></a>
+		<a href="#" class="social"><i class="fa fa-google"></i></a>
+		<a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+	</div>
+	<span>or use your account</span> -->
+	<input  class="inputBox" id="email" name="email" type="email" placeholder="Email" />
+	<!-- <input type="text" name="email" placeholder="Email" id="email"> -->
+	<input class="inputBox" id="password" name="password" type="password" placeholder="Password" />
+	<!-- <input type="password" name="password" placeholder="Password" id="password"> -->
+	<!-- <a href="#">Forgot Your Password</a> -->
+
+	<button id="signInButton" onclick="myFunction1()">Sign In</button>
+</div>
+</div>
+<div class="overlay-container">
+	<div class="overlay">
+		<div class="overlay-panel overlay-left">
+			<h1>Welcome Back!</h1>
+			<p>To keep connected with us please login with your personal info</p>
+			<button class="ghost" id="signIn">Sign In</button>
+		</div>
+		<div class="overlay-panel overlay-right">
+			<h1>Hello, Recruiter!</h1>
+			<p>Enter your details and start journey with us</p>
+			<button class="ghost" id="signUp">Sign Up</button>
+		</div>
+	</div>
+</div>
+</div>
+<!-- <script>
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script> -->
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+	function myFunction(){
+		var name=document.getElementById("nameSignUp").value;
+		if(name==""){
+		alert("Name must be filled out");
+			return false;
+		}
+		var psw=document.getElementById("passwordSignUp").value;
+		if(psw.length<8)
+		{
+			alert("Password must have minimum 8 characters");
+			return false;
+		}
+		var confirm_psw=document.getElementById("ConfirmpasswordSignup").value;
+		if(psw!=confirm_psw)
+		{
+			alert("Password and Confirm Password are not matching! Please Try again");
+			return false;
+		}
+		var email=document.getElementById("emailSignUp").value;
+		if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+  		{
+    		alert("You have entered an invalid email address!")
+			return (false)
+  		}
+  		// else{
+    	// 	alert("You have entered an invalid email address!")
+		// 	return (false)
+  		// }
+
+  		var pattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+  		var dob=document.getElementById("dobSignUp").value;
+		if(!pattern.test(dob))
+		{
+			alert('Please enter the Date of Birth in dd/mm/yyyy')
+			return false;
+		}
+
+	}
+	function myFunction1(){
+		var email=document.getElementById("email").value;
+		if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+  		{
+    		alert("You have entered an invalid email address!")
+			return (false)
+		}
+		var psw=document.getElementById("password").value;
+		if(psw.length<8)
+		{
+			alert("Password must have minimum 8 characters");
+			return false;
+		}
+		  
+	}
+
+	
+</script> 
+<script>
+$(document).ready(function () {
+	$('#signInButton').click(function () {
+
+		var email = $('#email').val();
+		var password = $('#password').val();
+
+		let status = [];
+
+		if (password < 6){
+			status.push("false");
+			document.getElementById("password").style.borderColor = "red";
+			document.getElementById("password").placeholder = "Please enter valid input";
+		} else {
+			status.push("true");
+		}
+
+
+		if(status.includes("false")){
+			return false
+		} else {
+		// fetch call
+		fetch("http://localhost:3000/recruiteruser/login", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			//make sure to serialize your JSON body
+			body: JSON.stringify({
+				email,
+				password,
+			})
+		})
+			.then(res => res.json())
+			.then(data => {
+				// let token = data.token;
+				console.log("hi get token from here", data.token);
+				localStorage.setItem("token", data.token)
+				console.log(localStorage.getItem("token"));
+				if (data.token) {
+					window.location.href = "Recruiter/light_user_list.html";
+				} else {
+					console.log("Maa chuda")
+				}
+			})
+
+		}
+	});
+
+
+
+
+
+	// console.log("Hello")
+	// $('.signUpButton').click(function () {
+
+	// 	console.log("Bye")
+	// 	$('.showOnSignIn').css("display", "none");
+	// 	$('.onSignInButtonClickShow').css("display", "block");
+	// });
+
+
+	$('#signup').click(function () {
+		console.log("hey sign me up")
+		var name = $('#nameSignUp').val();
+		var email = $('#emailSignUp').val();
+		var password = $('#passwordSignUp').val();
+		var dob = $('#dobSignUp').val();
+		console.log(name,email,dob,password);
+	fetch("http://localhost:3000/recruiteruser", {
+
+		method: "post",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		
+		//make sure to serialize your JSON body
+		body: JSON.stringify({
+			name,
+			email,
+			password,
+			dob
+		})
+	})
+		.then((response) => {
+			return response.json()
+			console.log("hey sign me2 up");
+
+			//do something awesome that makes the world a better place
+		})
+		.then(data => {
+		window.location.href = "signlog_recruiter.html";
+		})
+});
+
+});
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

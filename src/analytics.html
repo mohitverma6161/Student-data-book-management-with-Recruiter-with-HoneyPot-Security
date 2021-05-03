@@ -1,0 +1,1172 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+	<style>
+		body {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: rgba(0,0,0,.1);
+  background-image: url(banner-bg-choose.png);
+  
+  /* background-image: url(banner-bg-choose.png);
+  background: url("bg.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d); */
+}
+body::before{
+	/* content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px; */
+	background-color: rgba(0,0,0,0.02);
+}
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+.svg_close {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+.svg_close path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 300px;
+  z-index: 2;
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 300px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 300px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+h2 {
+  margin: 20px auto 80px;
+  /* font-size: 38px; */
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.5;
+
+}
+
+h3 {
+  margin: 20px auto 80px;
+  /* font-size: 38px; */
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  
+}
+details {
+  background-color: #f4f4f4;
+  width: 75%;
+  min-height: 5px;
+  max-width: 1000px;
+  /* padding: 45px 70px 45px 45px; */
+  margin: 0 auto;
+  position: relative;
+  font-size: 18px !important;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 15px;
+  box-sizing: border-box;
+  transition: all .3s;
+}
+
+details + details {
+  margin-top: 20px;
+}
+
+details[open] {
+  min-height: 50px;
+  background-color: #f6f7f8;
+  box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+}
+
+details div {
+  color: #96999d;
+  font-weight: 300;
+
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+summary:focus {
+  outline: none;
+  
+}
+
+summary:focus::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 5px rebeccapurple;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+.control-icon {
+  fill: rebeccapurple;
+  transition: .3s ease;
+  pointer-events: none;
+}
+
+.control-icon-close {
+  display: none;
+}
+
+details[open] .control-icon-close {
+  display: initial;
+  transition: .3s ease;
+  display: block;
+}
+
+details[open] .control-icon-expand {
+  display: none;
+}
+		h1,h2{
+			text-align: center;
+		}
+	#sec {
+  font-family: "Raleway", sans-serif;
+  padding: 50px 0;
+  /* background: #fff; */
+  text-align: center;
+  word-wrap: break-word;
+}
+#sec h2 {
+  font-weight: 200;
+  font-size: 30px!important;
+  color: #63B7E6;
+}
+#sec #ul {
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  list-style: none;
+}
+#sec #ul .li123 {
+  padding: 40px;
+  /* width: 800px; */
+  transition: box-shadow 0.3s;
+}
+#sec #ul .li123:hover {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+#sec #ul .li123:hover span {
+  color: #63B7E6;
+}
+#sec #ul .li123:hover p {
+  color: #555;
+}
+#sec #ul .li123:hover h3 {
+  color: #63B7E6;
+}
+#sec #ul .li123:hover h3:after {
+  width: 25px;
+}
+#sec #ul .li123 span {
+  font-size: 2.6em!important;
+  display: block;
+  transition: color 0.3s;
+  color: #A2A2A2;
+}
+#sec #ul .li123 span:before, #sec ul li span:after {
+  position: static;
+}
+#sec #ul .li123 h3 {
+  color: #6f6f6f;
+  display: inline-block;
+  font-size: 24px!important;
+  font-weight: 100;
+  transition: color 0.3s;
+}
+#sec #ul .li123 h3:after {
+  content: "";
+  position: relative;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #6f6f6f;
+  transition: width 0.3s;
+}
+#sec #ul .li123 p {
+  color: #A2A2A2;
+  text-align: left;
+  text-indent: 1em;
+  font-size: 16px !important;
+  line-height: 26px;
+  transition: color 0.3s;
+}
+
+	</style>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+<meta charset="UTF-8">
+<script>
+window.onload = function () {
+	var cgpa_data;
+	fetch("/info",{
+                      method:"get",
+                      headers:{
+                        'Accept': 'application/json',
+                          'Content-Type':'application/json',
+                          'Authorization': `Bearer ${localStorage.getItem('token')}`
+                      },
+
+                  }).then((response)=>{
+                      return response.json();
+                  }).then(data=>{
+                      console.log(data);
+					  console.log(data[0].semester_1);
+					  cgpa_data=JSON.parse(data[0].cgpa);
+					  console.log(cgpa_data);
+	var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "GPA Performance Chart"
+	},
+	axisX:{
+		title:"Semester"
+	},
+	axisY:{
+		title:"GPA (out of 10)",
+		includeZero: false
+	},
+    legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true
+	},
+	toolTip:{
+		shared:true
+	}, 
+	data: [{        
+		type: "line", 
+		markerType: "square",
+		color: "#F08080",
+		dataPoints: [
+			{label:'1st Semester', y: JSON.parse(data[0].semester_1) },
+			{ label:'2nd Semester',y: JSON.parse(data[0].semester_2)},
+			{ label:'3rd Semester',y: JSON.parse(data[0].semester_3) },
+			{ label:'4th Semester',y: JSON.parse(data[0].semester_4) },
+			{ label:'5th Semester',y: JSON.parse(data[0].semester_5) },
+			{ label:'6th Semester',y: JSON.parse(data[0].semester_6) },
+			{ label:'7th Semester',y: JSON.parse(data[0].semester_7) },
+			// { label:'8th Semester',y: JSON.parse(data[0].semester_8)},
+			// { y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			// { y: 500 },
+			// { y: 480 },
+			// { y: 510 }
+		]
+	}]
+})
+chart.render();
+let html=`<h4 style="background-color:yellow;">Your area of interest</h4><ul>`;
+if(data[0].machine_learning!=undefined)
+{
+	html=html+`<li style="font-size:12px">${data[0].machine_learning}</li>`;
+}		  
+if(data[0].cyber!=undefined)
+{
+	html=html+`<li style="font-size:12px">${data[0].cyber}</li>`;
+}
+if(data[0].web_development!=undefined)
+{
+	html=html+`<li style="font-size:12px">${data[0].web_development}</li>`;
+}
+if(data[0].testing!=undefined)
+{
+	html=html+`<li style="font-size:12px">${data[0].testing}</li>`;
+}
+html=html+`</ul>`;
+console.log(html);
+document.getElementById("result1").innerHTML=html;
+
+let html1=`<h4 style="background-color:yellow;">Your activities</h4><ul>`;
+if(data[0].hackathons!=undefined)
+{
+	html1=html1+`<li style="font-size:12px">${data[0].hackathons}</li>`;
+}		  
+if(data[0].cultural!=undefined)
+{
+	html1=html1+`<li style="font-size:12px">${data[0].cultural}</li>`;
+}
+if(data[0].research!=undefined)
+{
+	html1=html1+`<li style="font-size:12px">${data[0].research}</li>`;
+}
+if(data[0].coding_events!=undefined)
+{
+	html1=html1+`<li style="font-size:12px">${data[0].coding_events}</li>`;
+}
+html1=html1+`</ul>`;
+console.log(html1);
+document.getElementById("result2").innerHTML=html1;
+
+let html3=`<h4 style="background-color:yellow;">Your Preference</h4><ul>`;
+if(data[0].mnc!=undefined)
+{
+	html3=html3+`<li style="font-size:12px">${data[0].mnc}</li>`;
+}		  
+if(data[0].start_up!=undefined)
+{
+	html3=html3+`<li style="font-size:12px">${data[0].start_up}</li>`;
+}
+if(data[0].job_description!=undefined)
+{
+	html3=html3+`<li style="font-size:12px">${data[0].job_description}</li>`;
+}
+if(data[0].salary!=undefined)
+{
+	html3=html3+`<li style="font-size:12px">${data[0].salary}</li>`;
+}
+html3=html3+`</ul>`;
+console.log(html3);
+document.getElementById("result3").innerHTML=html3;
+
+let html4=`<h4 style="background-color:yellow;">Your Preference</h4><ul><li>${data[0].coding_language}</li></ul>`;
+document.getElementById("result4").innerHTML=html4;
+});
+		
+
+				  fetch("/info/all",{
+                      method:"get",
+                      headers:{
+                        'Accept': 'application/json',
+                          'Content-Type':'application/json',
+                          'Authorization': `Bearer ${localStorage.getItem('token')}`
+                      },
+
+                  }).then((response)=>{
+                      return response.json();
+                  }).then(data=>{
+                      console.log(data);
+					  var JAVA_count=0;
+					  var C_count=0;
+					  var Python_count=0;
+					  var others=0;
+					  var total=0;
+					  var ml=0;
+					  var cyber=0;
+					  var web=0;
+					  var testing=0;
+					  var total1=0;
+					  var hackathons=0;
+					  var cultural=0;
+					  var research=0;
+					  var coding_events=0;
+					  var total2=0;
+					  var mnc=0;
+					  var start_up=0;
+					  var job_description=0;
+					  var salary=0;
+					  var total3=0;
+					  var cgpa;
+					  data.forEach(ele => {
+						  if(ele.coding_language=='JAVA')
+						  {
+							  JAVA_count++;
+							total++;
+						  }
+						  else if(ele.coding_language=='C++/C')
+						  {
+							  C_count++;
+							  total++;
+						  }
+						  else if(ele.coding_language=='Python')
+						  {
+							  Python_count++;
+							  total++;
+						  }
+						  else if(ele.coding_language=='Others')
+						  {
+							  others++;
+							  total++;
+						  }
+						  if(ele.machine_learning=='Machine Learning/ Data Science')
+						  {
+							  ml++;
+							  total1++;
+						  }
+						  if(ele.cyber=='Cyber Security')
+						  {
+							  cyber++;
+							  total1++;
+						  }
+						  if(ele.web_development=='Web Development')
+						  {
+							  web++;
+							  total1++;
+						  }
+						  if(ele.testing=='Quality Assurance')
+						  {
+							  testing++;
+							  total1++;
+						  }
+						  if(ele.hackathons=='Participated in hackathons')
+						  {
+							  hackathons++;
+							  total2++;
+						  }
+						  if(ele.cultural=='Participated in Cultural Events')
+						  {
+							  cultural++;
+							  total2++;
+						  }
+						  if(ele.research=='Published a Research paper')
+						  {
+							  research++;
+							  total2++;
+						  }
+						  if(ele.coding_events=='Participated in coding events')
+						  {
+							  coding_events++;
+							  total2++;
+						  }
+						  if(ele.mnc=='MNC')
+						  {
+							  mnc++;
+							  total3++;
+						  }
+						  if(ele.start_up=='Start-up')
+						  {
+							  start_up++;
+							  total3++;
+						  }
+						  if(ele.job_description=='Job Description')
+						  {
+							  job_description++;
+							  total3++;
+						  }
+						  if(ele.salary=='Salary')
+						  {
+							  salary++;
+							  total3++;
+						  }
+						  
+					  });
+					  JAVA_count=(JAVA_count/total)*100;
+					  C_count=(C_count/total)*100;
+					  Python_count=(Python_count/total)*100;
+					  others=(others/total)*100;
+					  console.log(JAVA_count,C_count,Python_count,others,total);
+					  ml=(ml/total1)*100;
+					  cyber=(cyber/total1)*100;
+					  web=(web/total1)*100;
+					  testing=(testing/total)*100;
+					  hackathons=(hackathons/total2)*100;
+					  cultural=(cultural/total2)*100;
+					  research=(research/total2)*100;
+					  coding_events=(coding_events/total2)*100;
+					  mnc=(mnc/total3)*100;
+					  start_up=(start_up/total3)*100;
+					  job_description=(job_description/total3)*100;
+					  salary=(salary/total3)*100;
+				  var chart = new CanvasJS.Chart("chartContainer1", {
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: "Coding Language Preference"
+	},
+	legend:{
+		cursor: "pointer",
+		itemclick: explodePie
+	},
+	data: [{
+		type: "pie",
+		showInLegend: true,
+		toolTipContent: "{name}: <strong>{y}%</strong>",
+		indexLabel: "{name} - {y}%",
+		dataPoints: [
+			{ y: JAVA_count, name: "JAVA", exploded: true },
+			{ y: C_count, name: "C++/C" },
+			{ y: Python_count, name: "Python" },
+			{ y: others, name: "Other Languages" },
+			
+		]
+	}]
+});
+chart.render();
+
+var chart1 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	title:{
+		text: "Area of interest",
+		horizontalAlign: "left"
+	},
+	data: [{
+		type: "doughnut",
+		startAngle: 60,
+		//innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		dataPoints: [
+			{ y: ml, label: "Machine Learning/ Data Science" },
+			{ y: cyber, label: "Cyber Security" },
+			{ y: web, label: "Web Development" },
+			{ y: testing, label: "Quality Assurance"},
+		
+		]
+	}]
+});
+chart1.render();
+var chart2 = new CanvasJS.Chart("chartContainer3", {
+	animationEnabled: true,
+	title:{
+		text: "Apart from Academics, These % people have",
+		horizontalAlign: "left"
+	},
+	data: [{
+		type: "doughnut",
+		startAngle: 60,
+		//innerRadius: 60,
+		indexLabelFontSize: 17,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%) <b>people</b>",
+		dataPoints: [
+			{ y: hackathons, label: "Participated in hackathons" },
+			{ y: cultural, label: "Participated in Cultural Events" },
+			{ y: research, label: "Published a Research paper" },
+			{ y: coding_events, label: "Participated in coding events"},
+		
+		]
+	}]
+});
+chart2.render();
+var chart3 = new CanvasJS.Chart("chartContainer4", {
+	animationEnabled: true,
+	exportEnabled: true,
+	title:{
+		text: "Students Preference while applying for a Job"
+	},
+	data: [{
+		type: "pyramid",
+		indexLabelFontSize: 18,
+		valueRepresents: "area",
+		showInLegend: true,
+		legendText: "{indexLabel}",
+		toolTipContent: "<b>{indexLabel}:</b> {y}%",
+		dataPoints: [
+			{ y: mnc, indexLabel: "MNC" },
+			{ y: start_up, indexLabel: "Start-up Preference" },
+			{ y: job_description, indexLabel: "Depends on Job Description" },
+			{ y: salary, indexLabel: "Depends on Salary" }
+		]
+	}]
+});
+
+chart3.render();
+var data1=[];
+data.forEach(ele=>{
+	if(JSON.parse(ele.cgpa)!=cgpa_data)
+	data1.push({x:1,y:JSON.parse(ele.cgpa)});
+})
+console.log(data1);
+var chart4 = new CanvasJS.Chart("chartContainer5", {
+	animationEnabled: true,
+	title: {
+		text: "My CGPA Vs Other Users CGPA"
+	},
+	axisX: {
+		title: ""
+	},
+	axisY: {
+		title: "CGPA",
+		// suffix: "%"
+	},
+	legend: {
+		cursor: "pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "scatter",
+		name: "Other Users CGPA",
+		showInLegend: true,
+		toolTipContent: "<span style='color:#4F81BC '>{name}</span><br>CGPA: {y}%",
+		dataPoints:data1
+		
+	},
+	{
+		type: "scatter",
+		name: "My GPA",
+		showInLegend: true,
+		markerType: "triangle",
+		toolTipContent: "<span style='color:#C0504E '>{name}</span><br>CGPA: {y}%",
+		dataPoints:[
+			{x:1,y:cgpa_data}
+	]
+		
+	}]
+});
+chart4.render();
+				  });
+
+
+}
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+
+}
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}
+
+</script>
+</head>
+<body>
+	<img src="analytics-image.jpg" style="height: 350px;width: 700px;margin-left: 300px;">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<nav class="menu">
+		<input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+		
+		<label for="menu__toggle" class="menu__toggle-label">
+		  
+		  <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24' class="svg_close">
+			<path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+		  </svg>
+		  <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24' class="svg_close">
+			<path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+		  </svg>
+		</label>
+		<ol class='menu__content'>
+		  <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+		  <h1 style="margin-left: 0px;">Hi!</h1>
+		  <div id="name_of_student"></div>
+		  <br><br><br>
+		  <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Home</a></li>
+		  <li class="menu-item">
+			<i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Information</a>
+			<ol class="sub-menu">
+			  <li class="menu-item"><i class="fa fa-upload"></i>&nbsp;<a href="index1.html">Upload Information</a></li>
+			  <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="view_information.html">View Information</a></li>
+			</ol>
+		  </li>
+		  <li class="menu-item">
+			<i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="documents/main.html">Documents</a>
+			<ol class="sub-menu">
+			  <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="documents/acad/acad.html">Academics</a></li>
+			  <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="documents/health/healthcare.html">Health</a></li>
+			  <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="documents/work/work.html">Office</a></li>
+			  <li class="menu-item"><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="documents/bank/bank.html">Bank and Insurance</a></li>
+			  <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="documents/Govt Doc/govt.html">Govt. Documents</a></li>
+			  <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="documents/photo/photo.html">Other</a></li>
+			</ol>
+		  </li>
+		  <li class="menu-item">
+			<i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="Project/project.html">Project Details</a>
+			
+		  </li>
+		  <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="feedback.html">View Feedback</a></li>
+		  <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="analytics.html">Analytics</a></li>
+		  <li class="menu-item">
+			<i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="view-user-info.html">My Account</a>
+			<ol class="sub-menu">
+			  <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="view-user-info.html">View</a></li>
+			  <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="change_password.html">Change Password</a></li>
+			  <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="logout.html">Logout</a></li>
+			  
+			</ol>
+		  </li>
+		</ol>
+	   
+	  </nav>
+	  <script>
+		$(document).ready(function(){
+		 
+		 // Add new element
+		 fetch("/users/me",{
+		   method:"get",
+		   headers:{
+			 'Accept': 'application/json',
+								 'Content-Type':'application/json',
+								 'Authorization': `Bearer ${localStorage.getItem('token')}`
+		   },
+		 }).then((response)=>{
+		   return response.json();
+		 }).then(data=>{
+		   let html=``;
+				html=html+`<h1 style="margin-left:0px;">${data.name}</h1>`;
+				 
+				
+				 document.getElementById("name_of_student").innerHTML = html;
+	   
+				})
+			});
+			</script>
+	<div style="visibility: hidden; position: absolute; width: 0px; height: 0px;">
+		<svg xmlns="http://www.w3.org/2000/svg">
+		  <symbol viewBox="0 0 24 24" id="expand-more">
+			<path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/><path d="M0 0h24v24H0z" fill="none"/>
+		  </symbol>
+		  <symbol viewBox="0 0 24 24" id="close">
+			<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/>
+		  </symbol>
+		</svg>
+	  </div>
+	  <details id="one">
+		  <summary >
+	<h3>1) GPA Performance Chart</h3>
+	<svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+	<div id="chartContainer" style="height: 370px;width: 920px;  margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+<br>
+<br>
+<br>
+<br>
+
+<!-- <br>
+<br>
+<br>
+<br>
+<br> -->
+<details id="two">
+	<summary >
+<h3>2) Coding Language Preference with Other Students<p id="result4"></p></h3>
+<svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+<svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+<div id="chartContainer1" style="height: 370px;width: 920px;  margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+
+<br><br>
+
+<br><br><br>
+<!-- <section id="sec">
+	
+	<ul id="ul">
+	  <li class="li123">
+		<span class="fab fa-java"></span>
+  
+		<h3>JAVA</h3>
+		<img src="https://belitsoft.com/images/uploads/blog/JavaCompanies%20application.png" style="width: 300px;"></li>
+	  <li class="li123"><span class="fab fa-cuttlefish"></span>
+		<h3>C++/C</h3>
+		<img src="download (2).png" style="width: 300px;">
+	  </li>
+	  <li class="li123"><span class="fab fa-python"></span>
+		<h3>Python</h3>
+		
+		
+			<img src="https://techvidvan.com/tutorials/wp-content/uploads/sites/2/2019/12/Top-Companies-Using-Python-1.jpg" style="width: 300px;"></li>
+  
+	</ul>
+  </section> -->
+  <details id="three">
+	<summary >
+  <h3>3)Area of interest with Other Studnets <p id="result1"></p></h3><br><br>
+  <svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+	<div id="chartContainer2" style="height: 370px;width: 920px;  margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+<div id="result1"></div>
+<br><br>
+
+<br><br><br>
+
+
+<details id="four">
+	<summary >
+<h3>4)Apart from academics, what students have done <p id="result2"></p> </h3>
+<br><br>
+<svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+	
+	<div id="chartContainer3" style="height: 370px;width: 920px;  margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+
+<br><br>
+
+<br><br><br>
+
+
+<details id="five">
+	<summary >
+<h3>5)What other Students look while applying for a job  <p id="result3"></p></h3><br><br>
+<svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+	<div id="chartContainer4" style="height: 370px; width: 620px; margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+
+<br><br>
+
+<br><br><br>
+
+<details id="six">
+	<summary >
+<h3>6)My CGPA Comparison with Other Students </h3><br><br>
+<svg class="control-icon control-icon-expand" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#expand-more" /></svg>
+    <svg class="control-icon control-icon-close" width="24" height="24" role="presentation"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" /></svg>
+	<div id="chartContainer5" style="height: 370px; width: 920px; margin: 0px auto;"></div>
+	<!-- <br><br>
+	<br> -->
+
+</summary>
+</details>
+
+<br><br>
+
+<br><br><br>
+
+<script>
+	$('#one').click(function() {
+  $('#chartContainer').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+$('#two').click(function() {
+  $('#chartContainer1').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+$('#three').click(function() {
+  $('#chartContainer2').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+$('#four').click(function() {
+  $('#chartContainer3').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+$('#five').click(function() {
+  $('#chartContainer4').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+$('#six').click(function() {
+  $('#chartContainer5').toggle('slow',function() {
+    // Animation complete.
+  });
+});
+</script>
+<script src="canvasjs.min.js"></script>
+</body>
+</html>

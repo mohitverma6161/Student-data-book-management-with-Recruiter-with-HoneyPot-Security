@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: #f1f1f1; */
+  background-image: url(assets/images/banner-bg-choose.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; 
+  /* height: 120vh; */
+  /* background-color: #998bc9; */
+  /* background-image: url("login_bg.gif"); */
+  
+}
+
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 100px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 50px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  height: 300px;
+  width: 400px;
+  margin-top: 100px;
+  margin-left: auto;
+  background: #FFFFFF;
+	background: -webkit-linear-gradient(to right, #FFFFFF, #FFFFFF);
+	background: linear-gradient(to right, #FFFFFF, #FFFFFF);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: black;
+    transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+    border-radius: 100px;
+    /* cursor: pointer;
+  display: block;
+  background: #FFFFFF;
+  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.10);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  position: relative;
+  margin-bottom: 0px; */
+}
+a.main-button-slider {
+    text-decoration: none;
+  font-size: 13px;
+  border-radius: 20px;
+  padding: 12px 20px;
+  background-color: #FF416C;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.25px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+a.main-button-slider:hover {
+  background-color: #8261ee;
+}
+h1{
+    /* margin-left: 575px;
+    margin-top: 100px; */
+   color: #FFFFFF;
+    text-align: center;
+    margin-top: 100px;
+}
+</style>
+</head>
+<body>
+  <div id="bg">
+<h1 >Login/Signup</h1>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+        <img class="image" src="assets/images/student.jpg" >
+        <br><br>
+      <h3>For Students</h3>
+      <br>
+      <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+        <a href="signlog.html" class="main-button-slider">Click here</a>
+    </div>
+     
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+        <img class="image" src="assets/images/recruiter.png" >
+        <br><br>
+      <h3>For Recruiter</h3>
+      <br>
+      <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+        <a href="/Recruiter/signlog_recruiter.html" class="main-button-slider">Click here</a>
+    </div>
+     
+    </div>
+  </div>
+  
+  </div>
+
+</body>
+</html>

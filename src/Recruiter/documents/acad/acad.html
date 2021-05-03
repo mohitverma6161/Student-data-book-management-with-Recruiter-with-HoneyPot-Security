@@ -1,0 +1,2551 @@
+<html>
+    <head>
+        <title>Academics</title>
+        <link rel="icon" href="acad.jpg" type="image/icon type">
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+              @import url("https://fonts.googleapis.com/css?family=Lato");
+
+svg {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+svg path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 250px;
+  /* z-index: 2; */
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+            .glass-btn:hover {
+  /* background-color: whitesmoke; */
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+
+
+        </style>
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    </head>
+    <body>
+      <nav class="menu">
+        <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+        
+        <label for="menu__toggle" class="menu__toggle-label">
+          
+          <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+            <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+          </svg>
+          <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+          </svg>
+        </label>
+        <ol class='menu__content'>
+          <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+          <h1 style="margin-left: 90px;">Hi</h1>
+          <div id="name_of_student"></div>
+          <br><br><br>
+          <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../home1.html">Home</a></li>
+          <li class="menu-item">
+            <i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../read_personal.html">View Information</a>
+           
+          </li>
+          <li class="menu-item">
+            <i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../main.html">Documents</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="acad.html">Academics</a></li>
+              <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="../health/healthcare.html">Health</a></li>
+              <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="../work/work.html">Office</a></li>
+              <li class="menu-item"><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="../bank/bank.html">Bank and Insurance</a></li>
+              <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="../Govt Doc/govt.html">Govt. Documents</a></li>
+              <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="../photo/photo.html">Other</a></li>
+            </ol>
+          </li>
+          <li class="menu-item">
+            <i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="../../Project/project.html">View Project Details</a>
+            
+          </li>
+          <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="../../feedback.html">Give Feedback</a></li>
+          <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="../../view_analytics.html">Analytics</a></li>
+          <li class="menu-item">
+            <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../view-user-info.html">My Account</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view-user-info.html">View</a></li>
+              <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="../../change_password.html">Change Password</a></li>
+              <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="../../logout.html">Logout</a></li>
+              
+            </ol>
+          </li>
+        </ol>
+       
+      </nav>
+      <script>
+        $(document).ready(function(){
+         
+         // Add new element
+         fetch("/recruiteruser/me",{
+           method:"get",
+           headers:{
+             'Accept': 'application/json',
+                                 'Content-Type':'application/json',
+                                 'Authorization': `Bearer ${localStorage.getItem('token')}`
+           },
+         }).then((response)=>{
+           return response.json();
+         }).then(data=>{
+           let html=``;
+                html=html+`<h1 style="margin-left:40px;">${data.name}</h1>`;
+                 
+                
+                 document.getElementById("name_of_student").innerHTML = html;
+       
+                })
+            });
+            </script>
+        <div>
+            <img src="acad.jpg" style="height: 100px;width: 100px;padding-left: 50px;">
+        </div>
+        <br>
+
+        <!-- 1st -->
+        <div style="display: flex;text-align: center;">
+            <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">X-Migration Certificate</h1></div>
+            <div style="display: flex; margin-left: auto">
+            
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        
+                <div class="frame">
+                    <span class="close">&times;</span>
+                    <div class="center">
+                          <div class="bar"></div>
+                          <div class="title">Drop file to upload</div>
+                          <div class="dropzone">
+                              <div class="content">
+                                  <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                  <span class="filename"></span>
+                                  
+                                  <input type="file" class="input" id="education_1" name="image">
+                              </div>
+                          </div>
+                          <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                          <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                          <div class="upload-btn" id="upload_1">Upload file</div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download1"></div>
+           
+            
+            </div>
+            </div>
+
+            <div style="display: flex;text-align: center;">
+              <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">X-Passing Certificate</h1></div>
+              <div style="display: flex; margin-left: auto">
+              
+                  <div id="myModal1" class="modal">
+                      <div class="modal-content">
+                          
+                  <div class="frame">
+                      <span class="close">&times;</span>
+                      <div class="center">
+                            <div class="bar"></div>
+                            <div class="title">Drop file to upload</div>
+                            <div class="dropzone">
+                                <div class="content">
+                                    <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                    <span class="filename"></span>
+                                    
+                                    <input type="file" class="input" id="education_2" name="image">
+                                </div>
+                            </div>
+                            <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                            <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                            <div class="upload-btn" id="upload_2">Upload file</div>
+                      </div>
+                    </div>
+                  </div>
+  
+              </div>
+              <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download2"></div>
+             
+              
+              </div>
+              </div>
+
+              <div style="display: flex;text-align: center;">
+                <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">X-Marksheet</h1></div>
+                <div style="display: flex; margin-left: auto">
+               
+                    <div id="myModal2" class="modal">
+                        <div class="modal-content">
+                            
+                    <div class="frame">
+                        <span class="close">&times;</span>
+                        <div class="center">
+                              <div class="bar"></div>
+                              <div class="title">Drop file to upload</div>
+                              <div class="dropzone">
+                                  <div class="content">
+                                      <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                      <span class="filename"></span>
+                                      
+                                      <input type="file" class="input" id="education_3" name="image">
+                                  </div>
+                              </div>
+                              <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                              <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                              <div class="upload-btn" id="upload_3">Upload file</div>
+                        </div>
+                      </div>
+                    </div>
+    
+                </div>
+                <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download3"></div>
+               
+                
+                </div>
+                </div>
+
+
+
+                <div style="display: flex;text-align: center;">
+                  <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">X-Skill Certificate</h1></div>
+                  <div style="display: flex; margin-left: auto">
+                  
+                      <div id="myModal3" class="modal">
+                          <div class="modal-content">
+                              
+                      <div class="frame">
+                          <span class="close">&times;</span>
+                          <div class="center">
+                                <div class="bar"></div>
+                                <div class="title">Drop file to upload</div>
+                                <div class="dropzone">
+                                    <div class="content">
+                                        <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                        <span class="filename"></span>
+                                        
+                                        <input type="file" class="input" id="education_4" name="image">
+                                    </div>
+                                </div>
+                                <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                <div class="upload-btn" id="upload_4">Upload file</div>
+                          </div>
+                        </div>
+                      </div>
+      
+                  </div>
+                  <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download4"></div>
+                 
+                 
+                  </div>
+                  </div>
+
+
+                  <div style="display: flex;text-align: center;">
+                    <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">XII-Migration Certificate</h1></div>
+                    <div style="display: flex; margin-left: auto">
+                    
+                        <div id="myModal4" class="modal">
+                            <div class="modal-content">
+                                
+                        <div class="frame">
+                            <span class="close">&times;</span>
+                            <div class="center">
+                                  <div class="bar"></div>
+                                  <div class="title">Drop file to upload</div>
+                                  <div class="dropzone">
+                                      <div class="content">
+                                          <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                          <span class="filename"></span>
+                                          
+                                          <input type="file" class="input" id="education_5" name="image">
+                                      </div>
+                                  </div>
+                                  <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                  <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                  <div class="upload-btn" id="upload_5">Upload file</div>
+                            </div>
+                          </div>
+                        </div>
+        
+                    </div>
+                    <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download5"></div>
+                   
+                    
+                    </div>
+                    </div>
+
+
+                    <div style="display: flex;text-align: center;">
+                      <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">XII-Passing Certificate</h1></div>
+                      <div style="display: flex; margin-left: auto">
+                     
+                          <div id="myModal5" class="modal">
+                              <div class="modal-content">
+                                  
+                          <div class="frame">
+                              <span class="close">&times;</span>
+                              <div class="center">
+                                    <div class="bar"></div>
+                                    <div class="title">Drop file to upload</div>
+                                    <div class="dropzone">
+                                        <div class="content">
+                                            <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                            <span class="filename"></span>
+                                            
+                                            <input type="file" class="input" id="education_6" name="image">
+                                        </div>
+                                    </div>
+                                    <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                    <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                    <div class="upload-btn" id="upload_6">Upload file</div>
+                              </div>
+                            </div>
+                          </div>
+          
+                      </div>
+                      <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download6"></div>
+                     
+                     
+                      </div>
+                      </div>
+
+
+                      <div style="display: flex;text-align: center;">
+                        <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">XII-Marksheet</h1></div>
+                        <div style="display: flex; margin-left: auto">
+                        
+                            <div id="myModal6" class="modal">
+                                <div class="modal-content">
+                                    
+                            <div class="frame">
+                                <span class="close">&times;</span>
+                                <div class="center">
+                                      <div class="bar"></div>
+                                      <div class="title">Drop file to upload</div>
+                                      <div class="dropzone">
+                                          <div class="content">
+                                              <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                              <span class="filename"></span>
+                                              
+                                              <input type="file" class="input" id="education_7" name="image">
+                                          </div>
+                                      </div>
+                                      <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                      <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                      <div class="upload-btn" id="upload_7">Upload file</div>
+                                </div>
+                              </div>
+                            </div>
+            
+                        </div>
+                        <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download7"></div>
+                       
+                       
+                        </div>
+                        </div>
+
+
+                        <div style="display: flex;text-align: center;">
+                          <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">XII-Skill Certificate</h1></div>
+                          <div style="display: flex; margin-left: auto">
+                         
+                              <div id="myModal7" class="modal">
+                                  <div class="modal-content">
+                                      
+                              <div class="frame">
+                                  <span class="close">&times;</span>
+                                  <div class="center">
+                                        <div class="bar"></div>
+                                        <div class="title">Drop file to upload</div>
+                                        <div class="dropzone">
+                                            <div class="content">
+                                                <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                <span class="filename"></span>
+                                                
+                                                <input type="file" class="input" id="education_8" name="image">
+                                            </div>
+                                        </div>
+                                        <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                        <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                        <div class="upload-btn" id="upload_8">Upload file</div>
+                                  </div>
+                                </div>
+                              </div>
+              
+                          </div>
+                          <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download8"></div>
+                         
+                         
+                          </div>
+                          </div>
+
+
+                          <div style="display: flex;text-align: center;">
+                            <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">Teachers Eligibility Test Marksheet</h1></div>
+                            <div style="display: flex; margin-left: auto">
+                            
+                                <div id="myModal8" class="modal">
+                                    <div class="modal-content">
+                                        
+                                <div class="frame">
+                                    <span class="close">&times;</span>
+                                    <div class="center">
+                                          <div class="bar"></div>
+                                          <div class="title">Drop file to upload</div>
+                                          <div class="dropzone">
+                                              <div class="content">
+                                                  <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                  <span class="filename"></span>
+                                                  
+                                                  <input type="file" class="input" id="education_9" name="image">
+                                              </div>
+                                          </div>
+                                          <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                          <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                          <div class="upload-btn" id="upload_9">Upload file</div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                            </div>
+                            <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download9"></div>
+                           
+                            
+                            </div>
+                            </div>
+
+
+                            <div style="display: flex;text-align: center;">
+                              <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">Teachers Eligibility Test Certificate</h1></div>
+                              <div style="display: flex; margin-left: auto">
+                              
+                                  <div id="myModal9" class="modal">
+                                      <div class="modal-content">
+                                          
+                                  <div class="frame">
+                                      <span class="close">&times;</span>
+                                      <div class="center">
+                                            <div class="bar"></div>
+                                            <div class="title">Drop file to upload</div>
+                                            <div class="dropzone">
+                                                <div class="content">
+                                                    <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                    <span class="filename"></span>
+                                                    
+                                                    <input type="file" class="input" id="education_10" name="image">
+                                                </div>
+                                            </div>
+                                            <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                            <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                            <div class="upload-btn" id="upload_10">Upload file</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                  
+                              </div>
+                              <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download10"></div>
+                             
+                              
+                              </div>
+                              </div>
+
+
+                              <div style="display: flex;text-align: center;">
+                                <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">UG Degree</h1></div>
+                                <div style="display: flex; margin-left: auto">
+                               
+                                    <div id="myModal10" class="modal">
+                                        <div class="modal-content">
+                                            
+                                    <div class="frame">
+                                        <span class="close">&times;</span>
+                                        <div class="center">
+                                              <div class="bar"></div>
+                                              <div class="title">Drop file to upload</div>
+                                              <div class="dropzone">
+                                                  <div class="content">
+                                                      <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                      <span class="filename"></span>
+                                                      
+                                                      <input type="file" class="input" id="education_11" name="image">
+                                                  </div>
+                                              </div>
+                                              <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                              <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                              <div class="upload-btn" id="upload_11">Upload file</div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                </div>
+                                <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download11"></div>
+                               
+                               
+                                </div>
+                                </div>
+
+                                <div style="display: flex;text-align: center;">
+                                  <div><h1 style="padding-left: 250px;height: 100px;color: darkblue;">PG Degree</h1></div>
+                                  <div style="display: flex; margin-left: auto">
+                                  
+                                      <div id="myModal11" class="modal">
+                                          <div class="modal-content">
+                                              
+                                      <div class="frame">
+                                          <span class="close">&times;</span>
+                                          <div class="center">
+                                                <div class="bar"></div>
+                                                <div class="title">Drop file to upload</div>
+                                                <div class="dropzone">
+                                                    <div class="content">
+                                                        <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                                        <span class="filename"></span>
+                                                        
+                                                        <input type="file" class="input" id="education_12" name="image">
+                                                    </div>
+                                                </div>
+                                                <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                                <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                                <div class="upload-btn" id="upload_12">Upload file</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                      
+                                  </div>
+                                  <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 250px;cursor: pointer;" class="glass-btn" id="download12"></div>
+                                 
+                                  
+                                  </div>
+                                  </div>
+            <script>
+               // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("upload1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+//btn.onclick = function() {
+//  modal.style.display = "block";
+//}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+var droppedFiles = false;
+var fileName = '';
+var $dropzone = $('.dropzone');
+var $button = $('.upload-btn');
+var uploading = false;
+var $syncing = $('.syncing');
+var $done = $('.done');
+var $bar = $('.bar');
+var timeOut;
+
+$dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+	e.preventDefault();
+	e.stopPropagation();
+})
+	.on('dragover dragenter', function() {
+	$dropzone.addClass('is-dragover');
+})
+	.on('dragleave dragend drop', function() {
+	$dropzone.removeClass('is-dragover');
+})
+	.on('drop', function(e) {
+	droppedFiles = e.originalEvent.dataTransfer.files;
+	fileName = droppedFiles[0]['name'];
+	$('.filename').html(fileName);
+	$('.dropzone .upload').hide();
+});
+
+$button.bind('click', function() {
+	startUpload();
+});
+
+$("input:file").change(function (){
+	fileName = $(this)[0].files[0].name;
+	$('.filename').html(fileName);
+	$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+	if (!uploading && fileName != '' ) {
+		uploading = true;
+		$button.html('Uploading...');
+		$dropzone.fadeOut();
+		$syncing.addClass('active');
+		$done.addClass('active');
+		$bar.addClass('active');
+		timeoutID = window.setTimeout(showDone, 3200);
+	}
+}
+
+function showDone() {
+	$button.html('Done');
+}
+let file = document.getElementById("education_1");
+console.log(file.files);
+$(document).ready(function () {
+	$('#upload_1').click(function () {
+        let formData = new FormData();
+        let file = document.getElementById("education_1");
+		formData.append("image", file.files[0], file.name);
+     fetch("/x_migration",{
+       method:"post",
+       headers:{
+            'Authorization': `Bearer ${localStorage.getItem('token1')}`
+       },
+       body: formData,
+     }).then((response)=>{
+       return response.json();
+     }).then(data=>{
+       console.log(data)
+
+   
+     })
+    })
+    
+})
+// When the user clicks anywhere outside of the modal, close it
+
+          
+              
+                  
+$(document).ready(function () {
+                  $('#download1').click(function () {
+                    console.log(localStorage.getItem('token1'));
+                    console.log('working');
+        fetch("/x_migration",{
+       method:"get",
+       headers:{
+         'Accept': 'application/json',
+                             'Content-Type':'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then((data)=>{
+       console.log('working');
+       console.log(data);
+        var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].x_migration_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].x_migration_main_url)
+       
+     })
+    })
+})
+$(document).ready(function () {
+                  $('#delete1').click(function () {
+        fetch("/x_migration",{
+       method:"delete",
+       headers:{
+         
+        'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then((data)=>{
+       console.log(data);
+     })
+    })
+})
+              </script>
+
+
+
+<script>
+  // Get the modal
+var modal1 = document.getElementById("myModal1");
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("upload2");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close")[1];
+
+// When the user clicks the button, open the modal 
+// btn1.onclick = function() {
+// modal1.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+modal1.style.display = "none";
+}
+var droppedFiles1 = false;
+var fileName1 = '';
+var $dropzone1 = $('.dropzone');
+var $button1 = $('.upload-btn');
+var uploading1 = false;
+var $syncing1 = $('.syncing');
+var $done1 = $('.done');
+var $bar1 = $('.bar');
+var timeOut1;
+
+$dropzone1.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone1.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone1.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles1 = e.originalEvent.dataTransfer.files;
+fileName1 = droppedFiles[0]['name'];
+$('.filename').html(fileName1);
+$('.dropzone .upload').hide();
+});
+
+$button1.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName1 = $(this)[0].files[0].name;
+$('.filename').html(fileName1);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading1 && fileName1 != '' ) {
+uploading1 = true;
+$button1.html('Uploading...');
+$dropzone1.fadeOut();
+$syncing1.addClass('active');
+$done1.addClass('active');
+$bar1.addClass('active');
+timeoutID1 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button1.html('Done');
+}
+let file1 = document.getElementById("education_2");
+console.log(file1.files);
+$(document).ready(function () {
+$('#upload_2').click(function () {
+let formData1 = new FormData();
+let file1 = document.getElementById("education_2");
+formData1.append("image", file1.files[0], file1.name);
+fetch("/x_passing",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData1,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download2').click(function () {
+fetch("/x_passing",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].x_passing_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].x_passing_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete2').click(function () {
+fetch("/x_passing",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+<script>
+  // Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("upload3");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close")[2];
+
+// When the user clicks the button, open the modal 
+// btn2.onclick = function() {
+// modal2.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+modal2.style.display = "none";
+}
+var droppedFiles2 = false;
+var fileName2 = '';
+var $dropzone2 = $('.dropzone');
+var $button2 = $('.upload-btn');
+var uploading2 = false;
+var $syncing2 = $('.syncing');
+var $done2 = $('.done');
+var $bar2 = $('.bar');
+var timeOut2;
+
+$dropzone2.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone2.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone2.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles2 = e.originalEvent.dataTransfer.files;
+fileName2 = droppedFiles[0]['name'];
+$('.filename').html(fileName2);
+$('.dropzone .upload').hide();
+});
+
+$button2.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName2 = $(this)[0].files[0].name;
+$('.filename').html(fileName2);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading2 && fileName2 != '' ) {
+uploading2 = true;
+$button2.html('Uploading...');
+$dropzone2.fadeOut();
+$syncing2.addClass('active');
+$done2.addClass('active');
+$bar2.addClass('active');
+timeoutID2 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button2.html('Done');
+}
+let file2 = document.getElementById("education_3");
+console.log(file2.files);
+$(document).ready(function () {
+$('#upload_3').click(function () {
+let formData2 = new FormData();
+let file2 = document.getElementById("education_3");
+formData2.append("image", file2.files[0], file2.name);
+fetch("/x_marksheet",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData2,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download3').click(function () {
+fetch("/x_marksheet",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].x_marksheet_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].x_passing_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete3').click(function () {
+fetch("/x_passing",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal3 = document.getElementById("myModal3");
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("upload4");
+
+// Get the <span> element that closes the modal
+var span3 = document.getElementsByClassName("close")[3];
+
+// When the user clicks the button, open the modal 
+// btn3.onclick = function() {
+// modal3.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+modal3.style.display = "none";
+}
+var droppedFiles3 = false;
+var fileName3 = '';
+var $dropzone3 = $('.dropzone');
+var $button3 = $('.upload-btn');
+var uploading3 = false;
+var $syncing3 = $('.syncing');
+var $done3 = $('.done');
+var $bar3 = $('.bar');
+var timeOut3;
+
+$dropzone3.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone3.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone3.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles3 = e.originalEvent.dataTransfer.files;
+fileName3 = droppedFiles[0]['name'];
+$('.filename').html(fileName3);
+$('.dropzone .upload').hide();
+});
+
+$button3.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName3 = $(this)[0].files[0].name;
+$('.filename').html(fileName3);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading3 && fileName3 != '' ) {
+uploading3 = true;
+$button3.html('Uploading...');
+$dropzone3.fadeOut();
+$syncing3.addClass('active');
+$done3.addClass('active');
+$bar3.addClass('active');
+timeoutID3 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button3.html('Done');
+}
+let file3 = document.getElementById("education_4");
+console.log(file3.files);
+$(document).ready(function () {
+$('#upload_4').click(function () {
+let formData3 = new FormData();
+let file3 = document.getElementById("education_4");
+formData3.append("image", file3.files[0], file3.name);
+fetch("/x_skill",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData3,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download4').click(function () {
+fetch("/x_skill",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].x_skill_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].x_skill_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete4').click(function () {
+fetch("/x_skill",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+<script>
+  // Get the modal
+var modal4 = document.getElementById("myModal4");
+
+// Get the button that opens the modal
+var btn4 = document.getElementById("upload5");
+
+// Get the <span> element that closes the modal
+var span4 = document.getElementsByClassName("close")[4];
+
+// When the user clicks the button, open the modal 
+// btn4.onclick = function() {
+// modal4.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span4.onclick = function() {
+modal4.style.display = "none";
+}
+var droppedFiles4 = false;
+var fileName4 = '';
+var $dropzone4 = $('.dropzone');
+var $button4 = $('.upload-btn');
+var uploading4 = false;
+var $syncing4 = $('.syncing');
+var $done4 = $('.done');
+var $bar4 = $('.bar');
+var timeOut4;
+
+$dropzone4.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone4.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone4.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles4 = e.originalEvent.dataTransfer.files;
+fileName4 = droppedFiles[0]['name'];
+$('.filename').html(fileName4);
+$('.dropzone .upload').hide();
+});
+
+$button4.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName4 = $(this)[0].files[0].name;
+$('.filename').html(fileName4);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading4 && fileName4 != '' ) {
+uploading4 = true;
+$button4.html('Uploading...');
+$dropzone4.fadeOut();
+$syncing4.addClass('active');
+$done4.addClass('active');
+$bar4.addClass('active');
+timeoutID4 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button4.html('Done');
+}
+let file4 = document.getElementById("education_5");
+console.log(file4.files);
+$(document).ready(function () {
+$('#upload_5').click(function () {
+let formData4 = new FormData();
+let file4 = document.getElementById("education_5");
+formData4.append("image", file4.files[0], file4.name);
+fetch("/xii_migration",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData4,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download5').click(function () {
+fetch("/xii_migration",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].xii_migration_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].xii_migration_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete5').click(function () {
+fetch("/xii_migration",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal5 = document.getElementById("myModal5");
+
+// Get the button that opens the modal
+var btn5 = document.getElementById("upload6");
+
+// Get the <span> element that closes the modal
+var span5 = document.getElementsByClassName("close")[5];
+
+// When the user clicks the button, open the modal 
+// btn5.onclick = function() {
+// modal5.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span5.onclick = function() {
+modal5.style.display = "none";
+}
+var droppedFiles5 = false;
+var fileName5 = '';
+var $dropzone5 = $('.dropzone');
+var $button5 = $('.upload-btn');
+var uploading5 = false;
+var $syncing5 = $('.syncing');
+var $done5 = $('.done');
+var $bar5 = $('.bar');
+var timeOut5;
+
+$dropzone5.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone5.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone5.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles5 = e.originalEvent.dataTransfer.files;
+fileName5 = droppedFiles[0]['name'];
+$('.filename').html(fileName5);
+$('.dropzone .upload').hide();
+});
+
+$button5.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName5 = $(this)[0].files[0].name;
+$('.filename').html(fileName5);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading5 && fileName5 != '' ) {
+uploading5 = true;
+$button5.html('Uploading...');
+$dropzone5.fadeOut();
+$syncing5.addClass('active');
+$done5.addClass('active');
+$bar5.addClass('active');
+timeoutID5 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button5.html('Done');
+}
+let file5 = document.getElementById("education_6");
+console.log(file5.files);
+$(document).ready(function () {
+$('#upload_6').click(function () {
+let formData5 = new FormData();
+let file5 = document.getElementById("education_6");
+formData5.append("image", file5.files[0], file5.name);
+fetch("/xii_passing",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData5,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download6').click(function () {
+fetch("/xii_passing",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].xii_passing_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].xii_passing_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete6').click(function () {
+fetch("/xii_passing",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+<script>
+  // Get the modal
+var modal6 = document.getElementById("myModal6");
+
+// Get the button that opens the modal
+var btn6 = document.getElementById("upload7");
+
+// Get the <span> element that closes the modal
+var span6 = document.getElementsByClassName("close")[6];
+
+// When the user clicks the button, open the modal 
+// btn6.onclick = function() {
+// modal6.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span6.onclick = function() {
+modal6.style.display = "none";
+}
+var droppedFiles6 = false;
+var fileName6 = '';
+var $dropzone6 = $('.dropzone');
+var $button6 = $('.upload-btn');
+var uploading6 = false;
+var $syncing6 = $('.syncing');
+var $done6 = $('.done');
+var $bar6 = $('.bar');
+var timeOut6;
+
+$dropzone6.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone6.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone6.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles6 = e.originalEvent.dataTransfer.files;
+fileName6 = droppedFiles[0]['name'];
+$('.filename').html(fileName6);
+$('.dropzone .upload').hide();
+});
+
+$button6.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName6 = $(this)[0].files[0].name;
+$('.filename').html(fileName6);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading6 && fileName6 != '' ) {
+uploading6 = true;
+$button6.html('Uploading...');
+$dropzone6.fadeOut();
+$syncing6.addClass('active');
+$done6.addClass('active');
+$bar6.addClass('active');
+timeoutID6 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button6.html('Done');
+}
+let file6 = document.getElementById("education_7");
+console.log(file6.files);
+$(document).ready(function () {
+$('#upload_7').click(function () {
+let formData6 = new FormData();
+let file6 = document.getElementById("education_7");
+formData6.append("image", file6.files[0], file6.name);
+fetch("/xii_marksheet",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData6,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download7').click(function () {
+fetch("/xii_marksheet",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].xii_marksheet_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].xii_marksheet_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete7').click(function () {
+fetch("/xii_marksheet",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal7 = document.getElementById("myModal7");
+
+// Get the button that opens the modal
+var btn7 = document.getElementById("upload8");
+
+// Get the <span> element that closes the modal
+var span7 = document.getElementsByClassName("close")[7];
+
+// When the user clicks the button, open the modal 
+// btn7.onclick = function() {
+// modal7.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span7.onclick = function() {
+modal7.style.display = "none";
+}
+var droppedFiles7 = false;
+var fileName7 = '';
+var $dropzone7 = $('.dropzone');
+var $button7 = $('.upload-btn');
+var uploading7 = false;
+var $syncing7= $('.syncing');
+var $done7 = $('.done');
+var $bar7 = $('.bar');
+var timeOut7;
+
+$dropzone7.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone7.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone7.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles7 = e.originalEvent.dataTransfer.files;
+fileName7 = droppedFiles[0]['name'];
+$('.filename').html(fileName7);
+$('.dropzone .upload').hide();
+});
+
+$button7.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName7 = $(this)[0].files[0].name;
+$('.filename').html(fileName7);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading7 && fileName7 != '' ) {
+uploading7 = true;
+$button7.html('Uploading...');
+$dropzone7.fadeOut();
+$syncing7.addClass('active');
+$done7.addClass('active');
+$bar7.addClass('active');
+timeoutID7 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button7.html('Done');
+}
+let file7 = document.getElementById("education_8");
+console.log(file7.files);
+$(document).ready(function () {
+$('#upload_8').click(function () {
+let formData7 = new FormData();
+let file7 = document.getElementById("education_8");
+formData7.append("image", file7.files[0], file7.name);
+fetch("/xii_skill",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData7,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download8').click(function () {
+fetch("/xii_skill",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].xii_skill_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].xii_skill_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete8').click(function () {
+fetch("/xii_skill",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal8 = document.getElementById("myModal8");
+
+// Get the button that opens the modal
+var btn8 = document.getElementById("upload9");
+
+// Get the <span> element that closes the modal
+var span8 = document.getElementsByClassName("close")[8];
+
+// When the user clicks the button, open the modal 
+// btn8.onclick = function() {
+// modal8.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span8.onclick = function() {
+modal8.style.display = "none";
+}
+var droppedFiles8 = false;
+var fileName8 = '';
+var $dropzone8 = $('.dropzone');
+var $button8 = $('.upload-btn');
+var uploading8= false;
+var $syncing8= $('.syncing');
+var $done8 = $('.done');
+var $bar8 = $('.bar');
+var timeOut8;
+
+$dropzone8.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone8.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone8.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles8 = e.originalEvent.dataTransfer.files;
+fileName8 = droppedFiles[0]['name'];
+$('.filename').html(fileName8);
+$('.dropzone .upload').hide();
+});
+
+$button8.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName8 = $(this)[0].files[0].name;
+$('.filename').html(fileName8);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading8 && fileName8 != '' ) {
+uploading8 = true;
+$button8.html('Uploading...');
+$dropzone8.fadeOut();
+$syncing8.addClass('active');
+$done8.addClass('active');
+$bar8.addClass('active');
+timeoutID8 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button8.html('Done');
+}
+let file8 = document.getElementById("education_9");
+console.log(file8.files);
+$(document).ready(function () {
+$('#upload_9').click(function () {
+let formData8 = new FormData();
+let file8 = document.getElementById("education_9");
+formData8.append("image", file8.files[0], file8.name);
+fetch("/teacher_marksheet",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData8,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download9').click(function () {
+fetch("/teacher_marksheet",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].teacher_marksheet_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].teacher_marksheet_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete9').click(function () {
+fetch("/teacher_marksheet",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal9 = document.getElementById("myModal9");
+
+// Get the button that opens the modal
+var btn9 = document.getElementById("upload10");
+
+// Get the <span> element that closes the modal
+var span9 = document.getElementsByClassName("close")[9];
+
+// When the user clicks the button, open the modal 
+// btn9.onclick = function() {
+// modal9.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span9.onclick = function() {
+modal9.style.display = "none";
+}
+var droppedFiles9 = false;
+var fileName9 = '';
+var $dropzone9 = $('.dropzone');
+var $button9 = $('.upload-btn');
+var uploading9= false;
+var $syncing9= $('.syncing');
+var $done9 = $('.done');
+var $bar9 = $('.bar');
+var timeOut9;
+
+$dropzone9.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone9.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone9.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles9 = e.originalEvent.dataTransfer.files;
+fileName9 = droppedFiles[0]['name'];
+$('.filename').html(fileName9);
+$('.dropzone .upload').hide();
+});
+
+$button9.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName9 = $(this)[0].files[0].name;
+$('.filename').html(fileName9);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading9 && fileName9 != '' ) {
+uploading9 = true;
+$button9.html('Uploading...');
+$dropzone9.fadeOut();
+$syncing9.addClass('active');
+$done9.addClass('active');
+$bar9.addClass('active');
+timeoutID9 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button9.html('Done');
+}
+let file9 = document.getElementById("education_10");
+console.log(file9.files);
+$(document).ready(function () {
+$('#upload_10').click(function () {
+let formData9 = new FormData();
+let file9 = document.getElementById("education_10");
+formData9.append("image", file9.files[0], file9.name);
+fetch("/teacher_certificate",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData9,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download10').click(function () {
+fetch("/teacher_certificate",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].teacher_certificate_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].teacher_certificate_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete10').click(function () {
+fetch("/teacher_certificate",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+<script>
+  // Get the modal
+var modal10 = document.getElementById("myModal10");
+
+// Get the button that opens the modal
+var btn10 = document.getElementById("upload11");
+
+// Get the <span> element that closes the modal
+var span10 = document.getElementsByClassName("close")[10];
+
+// When the user clicks the button, open the modal 
+// btn10.onclick = function() {
+// modal10.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span10.onclick = function() {
+modal10.style.display = "none";
+}
+var droppedFiles10 = false;
+var fileName10 = '';
+var $dropzone10 = $('.dropzone');
+var $button10 = $('.upload-btn');
+var uploading10= false;
+var $syncing10= $('.syncing');
+var $done10 = $('.done');
+var $bar10 = $('.bar');
+var timeOut10;
+
+$dropzone10.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone10.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone10.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles10 = e.originalEvent.dataTransfer.files;
+fileName10 = droppedFiles[0]['name'];
+$('.filename').html(fileName10);
+$('.dropzone .upload').hide();
+});
+
+$button10.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName10 = $(this)[0].files[0].name;
+$('.filename').html(fileName10);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading10 && fileName10 != '' ) {
+uploading10 = true;
+$button10.html('Uploading...');
+$dropzone10.fadeOut();
+$syncing10.addClass('active');
+$done10.addClass('active');
+$bar10.addClass('active');
+timeoutID10 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button10.html('Done');
+}
+let file10 = document.getElementById("education_11");
+console.log(file10.files);
+$(document).ready(function () {
+$('#upload_11').click(function () {
+let formData10 = new FormData();
+let file10 = document.getElementById("education_11");
+formData10.append("image", file10.files[0], file10.name);
+fetch("/ug",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData10,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download11').click(function () {
+fetch("/ug",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].ug_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].ug_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete11').click(function () {
+fetch("/ug",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+<script>
+  // Get the modal
+var modal11 = document.getElementById("myModal11");
+
+// Get the button that opens the modal
+var btn11 = document.getElementById("upload12");
+
+// Get the <span> element that closes the modal
+var span11 = document.getElementsByClassName("close")[11];
+
+// When the user clicks the button, open the modal 
+// btn11.onclick = function() {
+// modal11.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span11.onclick = function() {
+modal11.style.display = "none";
+}
+var droppedFiles11 = false;
+var fileName11 = '';
+var $dropzone11 = $('.dropzone');
+var $button11 = $('.upload-btn');
+var uploading11= false;
+var $syncing11= $('.syncing');
+var $done11 = $('.done');
+var $bar11 = $('.bar');
+var timeOut11;
+
+$dropzone11.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone11.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone11.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles11 = e.originalEvent.dataTransfer.files;
+fileName11 = droppedFiles[0]['name'];
+$('.filename').html(fileName11);
+$('.dropzone .upload').hide();
+});
+
+$button11.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName11 = $(this)[0].files[0].name;
+$('.filename').html(fileName11);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading11 && fileName11 != '' ) {
+uploading11 = true;
+$button11.html('Uploading...');
+$dropzone11.fadeOut();
+$syncing11.addClass('active');
+$done11.addClass('active');
+$bar11.addClass('active');
+timeoutID11 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button11.html('Done');
+}
+let file11 = document.getElementById("education_12");
+console.log(file11.files);
+$(document).ready(function () {
+$('#upload_12').click(function () {
+let formData11 = new FormData();
+let file11 = document.getElementById("education_12");
+formData11.append("image", file11.files[0], file11.name);
+fetch("/pg",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token1')}`
+},
+body: formData11,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download12').click(function () {
+fetch("/pg",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].pg_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].pg_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete12').click(function () {
+fetch("/pg",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token1')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+
+
+              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+    </body>
+</html>

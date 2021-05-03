@@ -1,0 +1,1132 @@
+<html>
+    <head>
+        <title>HealthCare</title>
+        <link rel="icon" href="healthcare.PNG" type="image/icon type">
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+                 @import url("https://fonts.googleapis.com/css?family=Lato");
+
+svg {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+svg path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 250px;
+  /* z-index: 2; */
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+            .glass-btn:hover {
+  /* background-color: whitesmoke; */
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+
+
+        </style>
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    </head>
+    <body>
+      <nav class="menu">
+        <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+        
+        <label for="menu__toggle" class="menu__toggle-label">
+          
+          <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+            <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+          </svg>
+          <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+          </svg>
+        </label>
+        <ol class='menu__content'>
+          <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+          <h1 style="margin-left: 90px;">Hi</h1>
+          <div id="name_of_student"></div>
+          <br><br><br>
+          <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../home.html">Home</a></li>
+          <li class="menu-item">
+            <i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../home.html">Information</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><i class="fa fa-upload"></i>&nbsp;<a href="../../index1.html">Upload Information</a></li>
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view_information.html">View Information</a></li>
+            </ol>
+          </li>
+          <li class="menu-item">
+            <i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../main.html">Documents</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="../acad/acad.html">Academics</a></li>
+              <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="healthcare.html">Health</a></li>
+              <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="../work/work.html">Office</a></li>
+              <li class="menu-item"><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="../bank/bank.html">Bank and Insurance</a></li>
+              <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="../Govt Doc/govt.html">Govt. Documents</a></li>
+              <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="../photo/photo.html">Other</a></li>
+            </ol>
+          </li>
+          <li class="menu-item">
+            <i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="../../Project/project.html">Project Details</a>
+            
+          </li>
+          <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="../../feedback.html">View Feedback</a></li>
+          <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="../../analytics.html">Analytics</a></li>
+          <li class="menu-item">
+            <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../view-user-info.html">My Account</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view-user-info.html">View</a></li>
+              <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="../../change_password.html">Change Password</a></li>
+              <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="../../logout.html">Logout</a></li>
+              
+            </ol>
+          </li>
+        </ol>
+       
+      </nav>
+      <script>
+        $(document).ready(function(){
+         
+         // Add new element
+         fetch("/users/me",{
+           method:"get",
+           headers:{
+             'Accept': 'application/json',
+                                 'Content-Type':'application/json',
+                                 'Authorization': `Bearer ${localStorage.getItem('token')}`
+           },
+         }).then((response)=>{
+           return response.json();
+         }).then(data=>{
+           let html=``;
+                html=html+`<h1 style="margin-left:40px;">${data.name}</h1>`;
+                 
+                
+                 document.getElementById("name_of_student").innerHTML = html;
+       
+                })
+            });
+            </script>
+        <div>
+            <img src="healthcare.PNG" style="height: 100px;width: 100px;padding-left: 50px;">
+        </div>
+        <br>
+
+        <!-- 1st -->
+        <div style="display: flex;text-align: center;">
+            <div><h1 style="padding-left: 250px;height: 100px;color: red;">Clinical Laboratory Report</h1></div>
+            <div style="display: flex; margin-left: auto">
+            <div><img src="upload.png" style="height: 50px;width: 50px;padding-right: 40px;cursor: pointer;" class="glass-btn" id="upload1"></div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        
+                <div class="frame">
+                    <span class="close">&times;</span>
+                    <div class="center">
+                          <div class="bar"></div>
+                          <div class="title">Drop file to upload</div>
+                          <div class="dropzone">
+                              <div class="content">
+                                  <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                  <span class="filename"></span>
+                                  
+                                  <input type="file" class="input" id="education_1" name="image">
+                              </div>
+                          </div>
+                          <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                          <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                          <div class="upload-btn" id="upload_1">Upload file</div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 50px;cursor: pointer;" class="glass-btn" id="download1"></div>
+           
+            <div><img src="delete.png" style="height: 50px;width: 50px;padding-right: 150px;cursor: pointer;" class="glass-btn" id="delete1"></div>
+            </div>
+            </div>
+
+            <div style="display: flex;text-align: center;">
+              <div><h1 style="padding-left: 250px;height: 100px;color: red;">Covid Vaccine Certificate</h1></div>
+              <div style="display: flex; margin-left: auto">
+              <div><img src="upload.png" style="height: 50px;width: 50px;padding-right: 40px;cursor: pointer;" class="glass-btn" id="upload2"></div>
+                  <div id="myModal1" class="modal">
+                      <div class="modal-content">
+                          
+                  <div class="frame">
+                      <span class="close">&times;</span>
+                      <div class="center">
+                            <div class="bar"></div>
+                            <div class="title">Drop file to upload</div>
+                            <div class="dropzone">
+                                <div class="content">
+                                    <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                    <span class="filename"></span>
+                                    
+                                    <input type="file" class="input" id="education_2" name="image">
+                                </div>
+                            </div>
+                            <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                            <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                            <div class="upload-btn" id="upload_2">Upload file</div>
+                      </div>
+                    </div>
+                  </div>
+  
+              </div>
+              <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 50px;cursor: pointer;" class="glass-btn" id="download2"></div>
+             
+              <div><img src="delete.png" style="height: 50px;width: 50px;padding-right: 150px;cursor: pointer;" class="glass-btn" id="delete2"></div>
+              </div>
+              </div>
+
+              <div style="display: flex;text-align: center;">
+                <div><h1 style="padding-left: 250px;height: 100px;color: red;">Healtcare ID Card</h1></div>
+                <div style="display: flex; margin-left: auto">
+                <div><img src="upload.png" style="height: 50px;width: 50px;padding-right: 40px;cursor: pointer;" class="glass-btn" id="upload3"></div>
+                    <div id="myModal2" class="modal">
+                        <div class="modal-content">
+                            
+                    <div class="frame">
+                        <span class="close">&times;</span>
+                        <div class="center">
+                              <div class="bar"></div>
+                              <div class="title">Drop file to upload</div>
+                              <div class="dropzone">
+                                  <div class="content">
+                                      <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                      <span class="filename"></span>
+                                      
+                                      <input type="file" class="input" id="education_3" name="image">
+                                  </div>
+                              </div>
+                              <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                              <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                              <div class="upload-btn" id="upload_3">Upload file</div>
+                        </div>
+                      </div>
+                    </div>
+    
+                </div>
+                <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 50px;cursor: pointer;" class="glass-btn" id="download3"></div>
+               
+                <div><img src="delete.png" style="height: 50px;width: 50px;padding-right: 150px;cursor: pointer;" class="glass-btn" id="delete3"></div>
+                </div>
+                </div>
+
+
+
+                <div style="display: flex;text-align: center;">
+                  <div><h1 style="padding-left: 250px;height: 100px;color: red;">Pharmacist Registration Certificate</h1></div>
+                  <div style="display: flex; margin-left: auto">
+                  <div><img src="upload.png" style="height: 50px;width: 50px;padding-right: 40px;cursor: pointer;" class="glass-btn" id="upload4"></div>
+                      <div id="myModal3" class="modal">
+                          <div class="modal-content">
+                              
+                      <div class="frame">
+                          <span class="close">&times;</span>
+                          <div class="center">
+                                <div class="bar"></div>
+                                <div class="title">Drop file to upload</div>
+                                <div class="dropzone">
+                                    <div class="content">
+                                        <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
+                                        <span class="filename"></span>
+                                        
+                                        <input type="file" class="input" id="education_4" name="image">
+                                    </div>
+                                </div>
+                                <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
+                                <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
+                                <div class="upload-btn" id="upload_4">Upload file</div>
+                          </div>
+                        </div>
+                      </div>
+      
+                  </div>
+                  <div><img src="download.png" style="height: 50px;width: 50px;padding-right: 50px;cursor: pointer;" class="glass-btn" id="download4"></div>
+                 
+                  <div><img src="delete.png" style="height: 50px;width: 50px;padding-right: 150px;cursor: pointer;" class="glass-btn" id="delete4"></div>
+                  </div>
+                  </div>
+
+
+            <script>
+               // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("upload1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  location.reload();
+}
+var droppedFiles = false;
+var fileName = '';
+var $dropzone = $('.dropzone');
+var $button = $('.upload-btn');
+var uploading = false;
+var $syncing = $('.syncing');
+var $done = $('.done');
+var $bar = $('.bar');
+var timeOut;
+
+$dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+	// e.preventDefault();
+	// e.stopPropagation();
+})
+	.on('dragover dragenter', function() {
+	$dropzone.addClass('is-dragover');
+})
+	.on('dragleave dragend drop', function() {
+	$dropzone.removeClass('is-dragover');
+})
+	.on('drop', function(e) {
+	droppedFiles = e.originalEvent.dataTransfer.files;
+	fileName = droppedFiles[0]['name'];
+	$('.filename').html(fileName);
+	$('.dropzone .upload').hide();
+});
+
+$button.bind('click', function() {
+	startUpload();
+});
+
+$("input:file").change(function (){
+	fileName = $(this)[0].files[0].name;
+	$('.filename').html(fileName);
+	$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+	if (!uploading && fileName != '' ) {
+		uploading = true;
+		$button.html('Uploading...');
+		$dropzone.fadeOut();
+		$syncing.addClass('active');
+		$done.addClass('active');
+		$bar.addClass('active');
+		timeoutID = window.setTimeout(showDone, 3200);
+	}
+}
+
+function showDone() {
+	$button.html('Done');
+}
+let file = document.getElementById("education_1");
+console.log(file.files);
+$(document).ready(function () {
+	$('#upload_1').click(function () {
+        let formData = new FormData();
+        let file = document.getElementById("education_1");
+		formData.append("image", file.files[0], file.name);
+     fetch("/clinical",{
+       method:"post",
+       headers:{
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+       },
+       body: formData,
+     }).then((response)=>{
+       return response.json();
+     }).then(data=>{
+       console.log(data)
+
+   
+     })
+    })
+    
+})
+// When the user clicks anywhere outside of the modal, close it
+
+          
+              
+                  
+$(document).ready(function () {
+                  $('#download1').click(function () {
+        fetch("/clinical",{
+       method:"get",
+       headers:{
+         'Accept': 'application/json',
+                             'Content-Type':'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then((data)=>{
+       
+        var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].clinical_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].clinical_main_url)
+       
+     })
+    })
+})
+$(document).ready(function () {
+                  $('#delete1').click(function () {
+        fetch("/clinical",{
+       method:"delete",
+       headers:{
+         
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then((data)=>{
+       console.log(data);
+     })
+    })
+})
+              </script>
+
+
+
+<script>
+  // Get the modal
+var modal1 = document.getElementById("myModal1");
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("upload2");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close")[1];
+
+// When the user clicks the button, open the modal 
+btn1.onclick = function() {
+modal1.style.display = "block";
+console.log('maa chuda4');
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+modal1.style.display = "none";
+location.reload();
+}
+var droppedFiles1 = false;
+var fileName1 = '';
+var $dropzone1 = $('.dropzone'[1]);
+var $button1 = $('#upload_2');
+console.log('maa chuda');
+var uploading1 = false;
+var $syncing1 = $('.syncing'[1]);
+var $done1 = $('.done'[1]);
+var $bar1 = $('.bar'[1]);
+var timeOut1;
+
+$dropzone1.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+  console.log('maa chuda');
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone1.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone1.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles1 = e.originalEvent.dataTransfer.files;
+fileName1 = droppedFiles[0]['name'];
+$('.filename').html(fileName1);
+$('.dropzone .upload').hide();
+});
+
+$button1.bind('click', function() {
+startUpload1();
+console.log('maa chuda1');
+});
+
+$("input:file").change(function (){
+fileName1 = $(this)[0].files[0].name;
+$('.filename').html(fileName1);
+$('.dropzone .upload').hide();
+});
+
+function startUpload1() {
+if (!uploading1 && fileName1 != '' ) {
+uploading1 = true;
+$button1.html('Uploading...');
+$dropzone1.fadeOut();
+$syncing1.addClass('active');
+$done1.addClass('active');
+$bar1.addClass('active');
+timeoutID1 = window.setTimeout(showDone1, 3200);
+console.log('maa chuda2');
+}
+}
+
+function showDone1() {
+$button1.html('Done');
+console.log('maa chuda3');
+}
+let file1 = document.getElementById("education_2");
+console.log(file1.files);
+$(document).ready(function () {
+$('#upload_2').click(function () {
+let formData1 = new FormData();
+let file1 = document.getElementById("education_2");
+formData1.append("image", file1.files[0], file1.name);
+fetch("/covid",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token')}`
+},
+body: formData1,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download2').click(function () {
+fetch("/covid",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].covid_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].covid_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete2').click(function () {
+fetch("/covid",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+<script>
+  // Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("upload3");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close")[2];
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+modal2.style.display = "none";
+location.reload();
+}
+var droppedFiles2 = false;
+var fileName2 = '';
+var $dropzone2 = $('.dropzone');
+var $button2 = $('.upload-btn');
+var uploading2 = false;
+var $syncing2 = $('.syncing');
+var $done2 = $('.done');
+var $bar2 = $('.bar');
+var timeOut2;
+
+$dropzone2.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone2.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone2.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles2 = e.originalEvent.dataTransfer.files;
+fileName2 = droppedFiles[0]['name'];
+$('.filename').html(fileName2);
+$('.dropzone .upload').hide();
+});
+
+$button2.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName2 = $(this)[0].files[0].name;
+$('.filename').html(fileName2);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading2 && fileName2 != '' ) {
+uploading2 = true;
+$button2.html('Uploading...');
+$dropzone2.fadeOut();
+$syncing2.addClass('active');
+$done2.addClass('active');
+$bar2.addClass('active');
+timeoutID2 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button2.html('Done');
+}
+let file2 = document.getElementById("education_3");
+console.log(file2.files);
+$(document).ready(function () {
+$('#upload_3').click(function () {
+let formData2 = new FormData();
+let file2 = document.getElementById("education_3");
+formData2.append("image", file2.files[0], file2.name);
+fetch("/health_id_card",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token')}`
+},
+body: formData2,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download3').click(function () {
+fetch("/health_id_card",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].health_id_card_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].health_id_card_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete3').click(function () {
+fetch("/health_id_card",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+<script>
+  // Get the modal
+var modal3 = document.getElementById("myModal3");
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("upload4");
+
+// Get the <span> element that closes the modal
+var span3 = document.getElementsByClassName("close")[3];
+
+// When the user clicks the button, open the modal 
+btn3.onclick = function() {
+modal3.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+modal3.style.display = "none";
+location.reload();
+}
+var droppedFiles3 = false;
+var fileName3 = '';
+var $dropzone3 = $('.dropzone');
+var $button3 = $('.upload-btn');
+var uploading3 = false;
+var $syncing3 = $('.syncing');
+var $done3 = $('.done');
+var $bar3 = $('.bar');
+var timeOut3;
+
+$dropzone3.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+e.preventDefault();
+e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+$dropzone3.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+$dropzone3.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+droppedFiles3 = e.originalEvent.dataTransfer.files;
+fileName3 = droppedFiles[0]['name'];
+$('.filename').html(fileName3);
+$('.dropzone .upload').hide();
+});
+
+$button3.bind('click', function() {
+startUpload();
+});
+
+$("input:file").change(function (){
+fileName3 = $(this)[0].files[0].name;
+$('.filename').html(fileName3);
+$('.dropzone .upload').hide();
+});
+
+function startUpload() {
+if (!uploading3 && fileName3 != '' ) {
+uploading3 = true;
+$button3.html('Uploading...');
+$dropzone3.fadeOut();
+$syncing3.addClass('active');
+$done3.addClass('active');
+$bar3.addClass('active');
+timeoutID3 = window.setTimeout(showDone, 3200);
+}
+}
+
+function showDone() {
+$button3.html('Done');
+}
+let file3 = document.getElementById("education_4");
+console.log(file3.files);
+$(document).ready(function () {
+$('#upload_4').click(function () {
+let formData3 = new FormData();
+let file3 = document.getElementById("education_4");
+formData3.append("image", file3.files[0], file3.name);
+fetch("/pharmacist",{
+method:"post",
+headers:{
+'Authorization': `Bearer ${localStorage.getItem('token')}`
+},
+body: formData3,
+}).then((response)=>{
+return response.json();
+}).then(data=>{
+console.log(data)
+
+
+})
+})
+
+})
+// When the user clicks anywhere outside of the modal, close it
+
+
+ 
+     
+$(document).ready(function () {
+     $('#download4').click(function () {
+fetch("/pharmacist",{
+method:"get",
+headers:{
+'Accept': 'application/json',
+                'Content-Type':'application/json',
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+
+var link = document.createElement('a');
+link.target = '_blank';
+link.href = data[data.length-1].pharmacist_main_url;
+document.body.appendChild(link); // Required for Firefox
+link.click();
+link.remove(); 
+
+console.log(data[0].pharmacist_main_url)
+
+})
+})
+})
+$(document).ready(function () {
+     $('#delete4').click(function () {
+fetch("/pharmacist",{
+method:"delete",
+headers:{
+
+'Authorization': `Bearer ${localStorage.getItem('token')}`,
+},
+}).then((response)=>{
+return response.json();
+}).then((data)=>{
+console.log(data);
+})
+})
+})
+ </script>
+
+
+
+
+
+
+
+
+
+
+              <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+const mongoose=require('mongoose')
+const validator=require('validator')
+
+const bankSchema=new mongoose.Schema({
+    passbook_main_id:{
+		type:String
+	},
+	passbook_main_url:{
+		type:String
+	},
+	bank_statement_main_id:{
+		type:String
+	},
+	bank_statement_main_url:{
+		type:String
+	},
+	loan_main_id:{
+		type:String
+	},
+	loan_main_url:{
+		type:String
+	},
+	demand_draft_main_id:{
+		type:String
+	},
+	demand_draft_main_url:{
+		type:String
+	},
+    debit_card_main_id:{
+		type:String
+	},
+	debit_card_main_url:{
+		type:String
+	},
+    insurance_health_main_id:{
+		type:String
+	},
+	insurance_health_main_url:{
+		type:String
+	},
+    insurance_cyber_main_id:{
+		type:String
+	},
+	insurance_cyber_main_url:{
+		type:String
+	},
+    insurance_home_main_id:{
+		type:String
+	},
+	insurance_home_main_url:{
+		type:String
+	},
+    insurance_travel_main_id:{
+		type:String
+	},
+	insurance_travel_main_url:{
+		type:String
+	},
+    insurance_car_main_id:{
+		type:String
+	},
+	insurance_car_main_url:{
+		type:String
+	},
+    insurance_bike_main_id:{
+		type:String
+	},
+	insurance_bike_main_url:{
+		type:String
+	},
+	owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:'User'
+    }
+},{
+    timestamps:true
+})
+
+const Bank=mongoose.model('Bank',bankSchema)
+
+module.exports=Bank

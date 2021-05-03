@@ -1,0 +1,149 @@
+// Uploading endpoint
+
+const router = require("express").Router();
+const Products = require('../Database/models').products;
+const middleware = require('../Helpers/auth-middleware').session;
+const upload = require('./multer')
+const cloudinary = require('./cloudinary')
+const fs = require('fs');
+const sanitizer = require('sanitizer')
+
+router.post('/add', upload.any('image'), async (request, response) => {
+  const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+  const urls = []
+  const files = request.files;
+  for (const file of files) {
+    const { path } = file;
+    const newPath = await uploader(path)
+    urls.push(newPath)
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fs.unlinkSync(path)
+  }
+  const data =
+   {}
+  data.NAME = request.body.name;
+  data.PRODUCT_ID = request.body.product_id;
+  data.MAIN_IMAGE = {};
+  data.MAIN_IMAGE.IMG_URL = urls[0].url;
+  data.MAIN_IMAGE.IMG_ID = urls[0].id;
+  let otherImage = []
+  for(let i = 1; i < urls.length; i++){
+    otherImage.push({
+      IMG_URL: urls[parseInt(i)].url,
+      IMG_ID: urls[parseInt(i)].id
+    })
+  }
+
+
+multer.js
+
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log(file)
+        cb(null, './uploads/')
+    },
+    filename: function (req, file, cb) {
+        console.log(file)
+        cb(null, new Date().toISOString() + '-' + file.originalname)
+    }
+})
+
+const fileFilter = (req, file, cb) => {
+    console.log(file.mimetype)
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+        console.log('ho rha hain')
+        cb(null, true)
+    } else {
+        //reject file
+        cb({message: 'Unsupported file format'}, false)
+    }
+}
+
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 1024 * 1024 * 10}, // 5 mb max upload size
+    fileFilter: fileFilter
+})
+
+module.exports = upload;
+
+
+
+
+cloudinary.js
+
+
+const cloudinary = require('cloudinary');
+console.log(process.env.CLOUDINARY_API_KEY)
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_SECRET
+})
+
+exports.uploads = (file, folder) => {
+    return new Promise(resolve => {
+        cloudinary.uploader.upload(file, (result) => {
+            resolve({
+                url: result.url,
+                id: result.public_id
+            })
+        }, {
+            resource_type: "auto",
+            folder: folder
+        })
+    })
+}
+
+
+
+// const express=require('express')
+// const multer = require("multer")
+// const cloudinary = require("cloudinary")
+// const auth=require('../middleware/auth')
+// const { CloudinaryStorage } = require('multer-storage-cloudinary')
+// const router=new express.Router()
+// const Document=require('../models/upload-doc')
+// const { response } = require('express')
+
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_SECRET
+//     })
+
+//     // const storage = new CloudinaryStorage({
+//     //   cloudinary: cloudinary,
+//     //   params: {
+//     //     folder: 'some-folder-name',
+//     //     format: async (req, file) => 'png', // supports promises as well
+//     //     public_id: (req, file) => 'computed-filename-using-request',
+//     //   },
+//     // });
+//     console.log('chal1')
+//     const storage = new CloudinaryStorage({
+//       cloudinary: cloudinary,
+//       folder: "demo",
+//       allowedFormats: ["jpg", "png"],
+//       transformation: [{ width: 500, height: 500, crop: "limit" }]
+//       })
+//     const parser = multer({ storage: storage })
+// router.post('/api/images', parser.single("image"), (req, res) => {
+//   console.log('chal rha hai')
+//   console.log(req.file) // to see what is returned to you
+//   console.log(res)
+//   const image = {}
+//   image.url = req.file.url
+//   image.id = req.file.public_id
+//   // console.log(image)
+//   // Image.create(image) // save image information in database
+//   //   .then(newImage => res.json(newImage))
+//   //   .catch(err => console.log(err));
+  
+//   // res.status(201).json(image)
+  
+// });
+// module.exports=router

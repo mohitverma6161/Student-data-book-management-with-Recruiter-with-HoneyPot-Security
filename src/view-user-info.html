@@ -1,0 +1,560 @@
+<html>
+    <head>
+        <script src='jquery-3.0.0.js' type='text/javascript'></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <style>
+                      @import url("https://fonts.googleapis.com/css?family=Lato");
+
+svg {
+  cursor: pointer;
+  height: 44px;
+  width: 44px;
+}
+svg path {
+  fill: #fff;
+}
+ol {
+  list-style-type: none;
+}
+a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+}
+a[href]:hover:after {
+  transform: scaleX(1);
+}
+a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+/* .menu {
+  position: fixed;
+  top: 20px;
+  left:  20px;
+  width: 250px;
+  background: #4b4276;
+} */
+.menu__content {
+  background: #4b4276;
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 300px;
+  z-index: 2;
+}
+.menu__toggle-label {
+  background: #4b4276;
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top:30px;
+  /* left:30px; */
+  width: 44px;
+}
+.menu__toggle-label svg {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 0.15s;
+  z-index: 2;
+}
+.menu__toggle-label svg:nth-of-type(2) {
+  left: 350px;
+  transform: scale(0);
+}
+.menu__toggle {
+  opacity: 0;
+  position: fixed;
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: rgba(0,0,0,0.65);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background 0.15s;
+  width: 100vw;
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(1) {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .menu__toggle-label svg:nth-of-type(2) {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  border-color: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) a[href]:after {
+  background: #9b59b6;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  border-color: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) a[href]:after {
+  background: #86e2d5;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  border-color: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) a[href]:after {
+  background: #f5ab35;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  border-color: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) a[href]:after {
+  background: #1e8bc3;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  border-color: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) a[href]:after {
+  background: #e26a6a;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  border-color: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) a[href]:after {
+  background: greenyellow;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  border-color: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) a[href]:after {
+  background: gold;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.275s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.325s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(1) {
+  transition-delay: 0.375s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.425s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(3) {
+  transition-delay: 0.475s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.525s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.575s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.625s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.675s, 0.875s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.725s, 0.875s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .social_media{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .social_media a{
+  display: block;
+  width: 40px;
+  background: #594f8d;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+            /* @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600'); */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    background: url("bg.png"), -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.container{
+  width: 880px;
+  height: 300px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.img-container{
+  width: 40%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.img-container img{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.content{
+  width: 60%;
+  height: 100%;
+  float: left;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+
+.head{
+  padding-bottom: 30px;
+}
+
+.head p{
+  font-size: 28px;
+  color: #444444;
+  font-weight: 2000;
+}
+
+.head span{
+  color: #aaabaf;
+  font-size: 14px;
+}
+
+.data{
+  width: 90%;
+  overflow: hidden;
+}
+
+.inner-data{
+  width: 50%;
+  float: left;
+  text-align: left;
+  /* color: #aaabaf; */
+}
+
+.inner-data p{
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.inner-data span{
+  font-size: 18px;
+  font-weight: 400;
+  color: #aaabaf;
+}
+
+.img-container:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* border-left: 30px solid #1DA1F2;
+  border-right: 30px solid transparent;
+  border-top: 30px solid #1DA1F2; */
+  border-bottom: 30px solid transparent;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+}
+
+.img-container:after{
+  font-family: fontawesome;
+  /* content:"\f099"; */
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #fff;
+  font-size: 18px;
+}
+
+
+.floating-icon{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 38%;
+  right: -5%;
+  background: #1DA1F2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.floating-icon .fa{
+  position: absolute;
+  left: 18px;
+  top: 15px;
+  color: #fff;
+  font-size: 20px;
+  transition: all 1s ease;
+}
+
+.floating-icon.active .fa{
+    transform: rotate(45deg); 
+    transition: all 1s ease;
+}
+
+.btn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #1DA1F2;
+  padding: 6px 15px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.btn.active{
+  opacity: 1;
+}
+        </style>
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="menu">
+    <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+    
+    <label for="menu__toggle" class="menu__toggle-label">
+      
+      <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+        <path d='M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z' />
+      </svg>
+      <svg preserveAspectRatio='xMinYMin' viewBox='0 0 24 24'>
+        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+      </svg>
+    </label>
+    <ol class='menu__content'>
+      <img src="student.png" style="margin-left: 10px;margin-top: 10px;">
+      <h1 style="margin-left: 90px;">Hi</h1>
+      <div id="name_of_student"></div>
+      <br><br><br>
+      <li class="menu-item"><i class="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Home</a></li>
+      <li class="menu-item">
+        <i class="fa fa-info"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html">Information</a>
+        <ol class="sub-menu">
+          <li class="menu-item"><i class="fa fa-upload"></i><a href="index1.html">Upload Information</a></li>
+          <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="view_information.html">View Information</a></li>
+        </ol>
+      </li>
+      <li class="menu-item">
+        <i class="fa fa-file"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./documents/main.html">Documents</a>
+        <ol class="sub-menu">
+          <li class="menu-item"><i class="fa fa-graduation-cap"></i>&nbsp;<a href="./documents/acad/acad.html">Academics</a></li>
+          <li class="menu-item"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;<a href="./documents/health/healthcare.html">Health</a></li>
+          <li class="menu-item"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;<a href="./documents/work/work.html">Office</a></li>
+          <li class="menu-item"><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;&nbsp;<a href="./documents/bank/bank.html">Bank and Insurance</a></li>
+          <li class="menu-item"><i class="fas fa-fingerprint"></i>&nbsp;&nbsp;<a href="./documents/Govt Doc/govt.html">Govt. Documents</a></li>
+          <li class="menu-item"><i class="fas fa-images"></i>&nbsp;&nbsp;<a href="./documents/photo/photo.html">Other</a></li>
+        </ol>
+      </li>
+      <li class="menu-item">
+        <i class="fa fa-file-code"></i>&nbsp;&nbsp;&nbsp; <a href="./Project/project.html">Project Details</a>
+        
+      </li>
+      <li class="menu-item"><i class="fas fa-star"></i>&nbsp;&nbsp;&nbsp;<a href="feedback.html">View Feedback</a></li>
+      <li class="menu-item"><i class="fas fa-chart-line"></i>&nbsp;&nbsp;&nbsp;<a href="analytics.html">Analytics</a></li>
+      <li class="menu-item">
+        <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./view-user-info.html">My Account</a>
+        <ol class="sub-menu">
+          <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="./view-user-info.html">View</a></li>
+          <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="change_password.html">Change Password</a></li>
+          <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="logout.html">Logout</a></li>
+          
+        </ol>
+      </li>
+    </ol>
+   
+  </nav>
+  <script>
+    $(document).ready(function(){
+     
+     // Add new element
+     fetch("/users/me",{
+       method:"get",
+       headers:{
+         'Accept': 'application/json',
+                             'Content-Type':'application/json',
+                             'Authorization': `Bearer ${localStorage.getItem('token')}`
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then(data=>{
+       let html=``;
+            html=html+`<h1 style="margin-left:40px;">${data.name}</h1>`;
+             
+            
+             document.getElementById("name_of_student").innerHTML = html;
+   
+            })
+        });
+        </script>
+<div id="result"></div>
+<script>
+    $(document).ready(function(){
+     
+     // Add new element
+     fetch("/users/me",{
+       method:"get",
+       headers:{
+         'Accept': 'application/json',
+                             'Content-Type':'application/json',
+                             'Authorization': `Bearer ${localStorage.getItem('token')}`
+       },
+     }).then((response)=>{
+       return response.json();
+     }).then(data=>{
+       let html=``;
+      
+             html =
+               html +`<div class="wrapper">  <div class="container">    <div class="img-container">      <img src="pngtree-businessman-user-avatar-free-vector-png-image_1538405-removebg-preview.png" alt="">    </div>        <div class="content">      <div class="head">          <p>${data.name}</p>          <!-- <span>@TomCruise</span> -->      </div>      <div class="data">        <div class="inner-data">          <p><b>E-mail<b></p>          <span>${data.email}</span>        <br><br>          <p><b>Register No.</b></p>          <span>${data.roll_no}</span>        </div>      </div>    </div>        <!-- <div class="floating-icon">        <i class="fa fa-plus" aria-hidden="true"></i>    </div>        <div class="btn">follow</div> -->      </div></div>`;
+            
+             document.getElementById("result").innerHTML = html;
+    console.log(data);
+    console.log(data.name)
+            })
+        });
+        </script>
+</body>
+</html>

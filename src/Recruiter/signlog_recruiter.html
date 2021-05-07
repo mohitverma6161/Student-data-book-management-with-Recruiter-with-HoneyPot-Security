@@ -159,7 +159,6 @@
 		}
 		  
 	}
-
 	
 </script> 
 <script>
@@ -177,6 +176,20 @@ $(document).ready(function () {
 			document.getElementById("password").placeholder = "Please enter valid input";
 		} else {
 			status.push("true");
+		}
+		var email=document.getElementById("email").value;
+		if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+  		{
+			status.push("false");
+    		alert("You have entered an invalid email address!")
+			
+		}
+		var psw=document.getElementById("password").value;
+		if(psw.length==0)
+		{
+			status.push("false");
+			alert("Please enter Password");
+			
 		}
 
 
@@ -204,7 +217,7 @@ $(document).ready(function () {
 				if (data.token) {
 					window.location.href = "light_user_list.html";
 				} else {
-					console.log("Maa chuda")
+					alert('e-mail or password Wrong! Please re-enter\n'+count+' attempts left')
 				}
 			})
 
@@ -225,6 +238,39 @@ $(document).ready(function () {
 
 
 	$('#signup').click(function () {
+		var name=document.getElementById("nameSignUp").value;
+		var psw=document.getElementById("passwordSignUp").value;
+		var confirm_psw=document.getElementById("ConfirmpasswordSignup").value;
+		var email=document.getElementById("emailSignUp").value;
+		var pattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+  		var dob=document.getElementById("dobSignUp").value;
+		if(name==""){
+		alert("Name must be filled out");
+		}
+		
+		else if(psw.length<8)
+		{
+			alert("Password must have minimum 8 characters");
+			
+		}
+		
+		else if(psw!=confirm_psw)
+		{
+			alert("Password and Confirm Password are not matching! Please Try again");
+			
+		}
+		
+		else if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+  		{
+    		alert("You have entered an invalid email address!")
+			
+  		}
+  		else if(!pattern.test(dob))
+		{
+			alert('Please enter the Date of Birth in dd/mm/yyyy')
+			return false;
+		}
+		else{
 		console.log("hey sign me up")
 		var name = $('#nameSignUp').val();
 		var email = $('#emailSignUp').val();
@@ -256,6 +302,7 @@ $(document).ready(function () {
 		.then(data => {
 		window.location.href = "signlog_recruiter.html";
 		})
+	}
 });
 
 });

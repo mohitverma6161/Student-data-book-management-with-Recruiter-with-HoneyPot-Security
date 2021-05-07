@@ -349,7 +349,7 @@ a[href]:after {
           <li class="menu-item">
             <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../view-user-info.html">My Account</a>
             <ol class="sub-menu">
-              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view-user-info.html">View</a></li>
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../light_user_list.html">See Student list</a></li>
               <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="../../change_password.html">Change Password</a></li>
               <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="../../logout.html">Logout</a></li>
               
@@ -916,6 +916,8 @@ $(document).ready(function () {
      }).then((response)=>{
        return response.json();
      }).then((data)=>{
+      if(data.length!=0)
+{
        console.log('working');
        console.log(data);
         var link = document.createElement('a');
@@ -926,7 +928,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].x_migration_main_url)
-       
+}
+else
+alert('No file uploaded')
      })
     })
 })
@@ -1060,15 +1064,21 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].x_passing_main_url;
+
 document.body.appendChild(link); // Required for Firefox
 link.click();
 link.remove(); 
 
 console.log(data[0].x_passing_main_url)
+}
+else{
+  alert('No file uploaded')
+}
 
 })
 })
@@ -1202,7 +1212,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].x_marksheet_main_url;
@@ -1211,7 +1222,11 @@ link.click();
 link.remove(); 
 
 console.log(data[0].x_passing_main_url)
-
+}
+else
+{
+  alert('No file uploaded')
+}
 })
 })
 })
@@ -1347,7 +1362,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].x_skill_main_url;
@@ -1356,7 +1372,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].x_skill_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1490,7 +1508,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].xii_migration_main_url;
@@ -1499,7 +1518,11 @@ link.click();
 link.remove(); 
 
 console.log(data[0].xii_migration_main_url)
-
+}
+else
+{
+  alert('No file uploaded')
+}
 })
 })
 })
@@ -1635,7 +1658,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].xii_passing_main_url;
@@ -1644,6 +1668,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].xii_passing_main_url)
+}
+else
+alert('No file Uploaded')
 
 })
 })
@@ -1779,7 +1806,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].xii_marksheet_main_url;
@@ -1788,6 +1816,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].xii_marksheet_main_url)
+}
+else
+alert('No file uploaded')
 
 })
 })
@@ -1924,7 +1955,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].xii_skill_main_url;
@@ -1933,7 +1965,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].xii_skill_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2069,7 +2103,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].teacher_marksheet_main_url;
@@ -2078,7 +2113,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].teacher_marksheet_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2214,7 +2251,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].teacher_certificate_main_url;
@@ -2223,7 +2261,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].teacher_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2358,7 +2398,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].ug_main_url;
@@ -2367,7 +2408,10 @@ link.click();
 link.remove(); 
 
 console.log(data[0].ug_main_url)
-
+}
+else{
+  alert('No file uploaded')
+}
 })
 })
 })
@@ -2502,7 +2546,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
-
+  if(data.length!=0)
+{
 var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].pg_main_url;
@@ -2511,7 +2556,10 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pg_main_url)
-
+}
+else{
+  alert('No file uploaded')
+}
 })
 })
 })

@@ -349,7 +349,7 @@ a[href]:after {
           <li class="menu-item">
             <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../view-user-info.html">My Account</a>
             <ol class="sub-menu">
-              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view-user-info.html">View</a></li>
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../light_user_list.html">See Student list</a></li>
               <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="../../change_password.html">Change Password</a></li>
               <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="../../logout.html">Logout</a></li>
               
@@ -1018,7 +1018,8 @@ $(document).ready(function () {
      }).then((response)=>{
        return response.json();
      }).then((data)=>{
-       
+      if(data.length!=0)
+{
         var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].aadhar_main_url;
@@ -1027,6 +1028,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].aadhar_main_url)
+}
+else
+alert('No file uploaded')
        
      })
     })
@@ -1161,6 +1165,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1170,7 +1176,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pan_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1303,6 +1311,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1312,7 +1322,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].driving_license_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1448,6 +1460,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1457,7 +1471,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].domicile_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1591,6 +1607,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1600,7 +1618,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].caste_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1736,6 +1756,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1745,7 +1767,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].birth_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1880,6 +1904,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1889,7 +1915,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].income_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2025,6 +2053,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2034,7 +2064,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].disabled_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2170,6 +2202,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2179,7 +2213,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].bike_registratio_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2315,6 +2351,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2324,7 +2362,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].car_registration_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2459,6 +2499,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2468,7 +2510,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].arm_license_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2603,6 +2647,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2612,7 +2658,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].marriage_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2748,7 +2796,9 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].ration_card_main_url;
@@ -2757,7 +2807,10 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].ration_card_main_url)
-  
+}
+else
+alert('No file uploaded')
+
   })
   })
   })
@@ -2891,7 +2944,9 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].voter_id_main_url;
@@ -2900,7 +2955,9 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].voter_id_main_url)
-  
+}
+else
+alert('No file uploaded')
   })
   })
   })
@@ -3035,7 +3092,9 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].passport_main_url;
@@ -3044,7 +3103,9 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].passport_main_url)
-  
+}
+else
+alert('No file uploaded')
   })
   })
   })

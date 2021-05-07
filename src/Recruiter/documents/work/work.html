@@ -349,7 +349,7 @@ a[href]:after {
           <li class="menu-item">
             <i class="fa fa-user-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../view-user-info.html">My Account</a>
             <ol class="sub-menu">
-              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../view-user-info.html">View</a></li>
+              <li class="menu-item"><i class="fa fa-eye"></i>&nbsp;<a href="../../light_user_list.html">See Student list</a></li>
               <li class="menu-item"><i class="fa fa-key"></i>&nbsp;&nbsp;<a href="../../change_password.html">Change Password</a></li>
               <li class="menu-item"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;<a href="../../logout.html">Logout</a></li>
               
@@ -776,7 +776,9 @@ $(document).ready(function () {
      }).then((response)=>{
        return response.json();
      }).then((data)=>{
-       
+      if(data.length!=0)
+{
+
         var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].offer_letter_main_url;
@@ -785,7 +787,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].offer_letter_main_url)
-       
+}
+else
+alert('No file uploaded')
      })
     })
 })
@@ -919,6 +923,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -928,7 +934,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pay_slip_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1061,6 +1069,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1070,7 +1080,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].non_disclosure_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1206,6 +1218,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1215,7 +1229,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].uan_card_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1349,6 +1365,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1358,7 +1376,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pension_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1494,6 +1514,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1503,7 +1525,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].skill_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1638,6 +1662,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1647,7 +1673,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].resume_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1783,6 +1811,8 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1792,7 +1822,9 @@ link.click();
 link.remove(); 
 
 console.log(data[0].itr_main_url)
-
+}
+else
+alert('No file uploaded')
 })
 })
 })

@@ -1022,7 +1022,11 @@ $(document).ready(function () {
      }).then((response)=>{
        return response.json();
      }).then((data)=>{
-       
+      if(data.length!=0)
+       {
+  if(data[data.length-1].aadhar_main_url)
+{
+
         var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].aadhar_main_url;
@@ -1031,7 +1035,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].aadhar_main_url)
-       
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
      })
     })
 })
@@ -1166,6 +1175,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].pan_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1175,7 +1188,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pan_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1309,6 +1327,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].driving_license_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1318,7 +1340,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].driving_license_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1454,6 +1481,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].domicile_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1463,7 +1494,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].domicile_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1598,6 +1634,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].caste_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1607,7 +1647,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].caste_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1744,6 +1789,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].birth_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1753,7 +1802,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].birth_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1889,6 +1943,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].income_certificate_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1898,7 +1956,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].income_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2035,6 +2098,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].disabled_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2044,7 +2111,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].disabled_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2181,6 +2253,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].bike_registratio_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2190,7 +2266,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].bike_registratio_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2327,6 +2408,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].car_registration_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2336,7 +2421,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].car_registration_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2472,6 +2562,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].arm_license_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2481,7 +2575,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].arm_license_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2617,6 +2716,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].marriage_certificate_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2626,7 +2729,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].marriage_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -2763,7 +2871,11 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+       {
+  if(data[data.length-1].ration_card_main_url)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].ration_card_main_url;
@@ -2772,7 +2884,12 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].ration_card_main_url)
-  
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
   })
   })
   })
@@ -2907,7 +3024,11 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+       {
+  if(data[data.length-1].voter_id_main_url)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].voter_id_main_url;
@@ -2916,7 +3037,12 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].voter_id_main_url)
-  
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
   })
   })
   })
@@ -3052,7 +3178,11 @@ console.log(data);
   }).then((response)=>{
   return response.json();
   }).then((data)=>{
-  
+    if(data.length!=0)
+       {
+  if(data[data.length-1].passport_main_url)
+{
+
   var link = document.createElement('a');
   link.target = '_blank';
   link.href = data[data.length-1].passport_main_url;
@@ -3061,7 +3191,12 @@ console.log(data);
   link.remove(); 
   
   console.log(data[0].passport_main_url)
-  
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
   })
   })
   })

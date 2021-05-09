@@ -673,6 +673,8 @@ $(document).ready(function () {
        return response.json();
      }).then((data)=>{
       if(data.length!=0)
+       {
+      if(data[data.length-1].self_photo_main_url)
 {
 
         var link = document.createElement('a');
@@ -685,6 +687,10 @@ link.remove();
 console.log(data[0].self_photo_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
      })
     })
@@ -820,6 +826,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].father_photo_main_url)
 {
 
 var link = document.createElement('a');
@@ -832,6 +840,10 @@ link.remove();
 console.log(data[0].father_photo_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -966,6 +978,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].mother_photo_main_url)
 {
 
 var link = document.createElement('a');
@@ -978,6 +992,10 @@ link.remove();
 console.log(data[0].mother_photo_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1115,6 +1133,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].brother_phot_main_url)
 {
 
 var link = document.createElement('a');
@@ -1127,6 +1147,10 @@ link.remove();
 console.log(data[0].brother_phot_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1262,6 +1286,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].sister_photo_main_url)
 {
 
 var link = document.createElement('a');
@@ -1274,6 +1300,10 @@ link.remove();
 console.log(data[0].sister_photo_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })

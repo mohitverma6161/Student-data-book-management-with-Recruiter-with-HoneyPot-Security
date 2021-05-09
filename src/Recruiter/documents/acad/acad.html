@@ -917,6 +917,8 @@ $(document).ready(function () {
        return response.json();
      }).then((data)=>{
       if(data.length!=0)
+       {
+      if(data[data.length-1].x_migration_main_url)
 {
        console.log('working');
        console.log(data);
@@ -930,6 +932,10 @@ link.remove();
 console.log(data[0].x_migration_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
      })
     })
@@ -1065,6 +1071,8 @@ headers:{
 return response.json();
 }).then((data)=>{
 if(data.length!=0)
+       {
+      if(data[data.length-1].x_passing_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1076,7 +1084,11 @@ link.remove();
 
 console.log(data[0].x_passing_main_url)
 }
-else{
+else
+alert('No file uploaded')
+}
+else
+{
   alert('No file uploaded')
 }
 
@@ -1213,6 +1225,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].x_marksheet_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1224,6 +1238,10 @@ link.remove();
 console.log(data[0].x_passing_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 {
   alert('No file uploaded')
 }
@@ -1363,6 +1381,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].x_skill_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1374,6 +1394,10 @@ link.remove();
 console.log(data[0].x_skill_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1509,6 +1533,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].xii_migration_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1520,6 +1546,10 @@ link.remove();
 console.log(data[0].xii_migration_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 {
   alert('No file uploaded')
 }
@@ -1659,6 +1689,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].xii_passing_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1670,6 +1702,10 @@ link.remove();
 console.log(data[0].xii_passing_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file Uploaded')
 
 })
@@ -1807,6 +1843,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].xii_marksheet_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1818,6 +1856,10 @@ link.remove();
 console.log(data[0].xii_marksheet_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 
 })
@@ -1956,6 +1998,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].xii_skill_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1967,6 +2011,10 @@ link.remove();
 console.log(data[0].xii_skill_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2104,6 +2152,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].teacher_marksheet_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2115,6 +2165,10 @@ link.remove();
 console.log(data[0].teacher_marksheet_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2252,6 +2306,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].teacher_certificate_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2263,6 +2319,10 @@ link.remove();
 console.log(data[0].teacher_certificate_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2399,6 +2459,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].ug_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2409,7 +2471,11 @@ link.remove();
 
 console.log(data[0].ug_main_url)
 }
-else{
+else
+alert('No file uploaded')
+}
+else
+{
   alert('No file uploaded')
 }
 })
@@ -2547,6 +2613,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].pg_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2557,7 +2625,11 @@ link.remove();
 
 console.log(data[0].pg_main_url)
 }
-else{
+else
+alert('No file uploaded')
+}
+else
+{
   alert('No file uploaded')
 }
 })

@@ -780,7 +780,11 @@ $(document).ready(function () {
      }).then((response)=>{
        return response.json();
      }).then((data)=>{
-       
+      if(data.length!=0)
+       {
+  if(data[data.length-1].offer_letter_main_url)
+{
+
         var link = document.createElement('a');
 link.target = '_blank';
 link.href = data[data.length-1].offer_letter_main_url;
@@ -789,7 +793,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].offer_letter_main_url)
-       
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
      })
     })
 })
@@ -924,6 +933,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].pay_slip_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -933,7 +946,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pay_slip_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1067,6 +1085,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].non_disclosure_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1076,7 +1098,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].non_disclosure_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1213,6 +1240,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].uan_card_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1222,7 +1253,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].uan_card_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1357,6 +1393,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].pension_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1366,7 +1406,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].pension_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1503,6 +1548,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].skill_certificate_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1512,7 +1561,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].skill_certificate_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1648,6 +1702,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].resume_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1657,7 +1715,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].resume_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })
@@ -1794,6 +1857,10 @@ headers:{
 }).then((response)=>{
 return response.json();
 }).then((data)=>{
+  if(data.length!=0)
+       {
+  if(data[data.length-1].itr_main_url)
+{
 
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1803,7 +1870,12 @@ link.click();
 link.remove(); 
 
 console.log(data[0].itr_main_url)
-
+}
+else
+alert('No file uploaded')
+}
+else
+alert('No file uploaded')
 })
 })
 })

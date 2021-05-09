@@ -637,6 +637,8 @@ $(document).ready(function () {
        return response.json();
      }).then((data)=>{
       if(data.length!=0)
+       {
+      if(data[data.length-1].clinical_main_url)
 {
 
         var link = document.createElement('a');
@@ -649,6 +651,10 @@ link.remove();
 console.log(data[0].clinical_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
      })
     })
@@ -784,6 +790,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].covid_main_url)
 {
 
 var link = document.createElement('a');
@@ -796,6 +804,10 @@ link.remove();
 console.log(data[0].covid_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -930,6 +942,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].health_id_card_main_url)
 {
 
 var link = document.createElement('a');
@@ -942,6 +956,10 @@ link.remove();
 console.log(data[0].health_id_card_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1079,6 +1097,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].pharmacist_main_url)
 {
 
 var link = document.createElement('a');
@@ -1091,6 +1111,10 @@ link.remove();
 console.log(data[0].pharmacist_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })

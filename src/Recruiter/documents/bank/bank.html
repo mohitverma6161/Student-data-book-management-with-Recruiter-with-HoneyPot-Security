@@ -883,6 +883,8 @@ $(document).ready(function () {
        return response.json();
      }).then((data)=>{
       if(data.length!=0)
+       {
+      if(data[data.length-1].passbook_main_url)
 {
         var link = document.createElement('a');
 link.target = '_blank';
@@ -894,6 +896,10 @@ link.remove();
 console.log(data[0].passbook_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
        
      })
@@ -1030,6 +1036,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].bank_statement_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1041,6 +1049,10 @@ link.remove();
 console.log(data[0].bank_statement_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 
 })
@@ -1176,6 +1188,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].loan_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1187,6 +1201,10 @@ link.remove();
 console.log(data[0].loan_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1324,6 +1342,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].demand_draft_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1335,6 +1355,10 @@ link.remove();
 console.log(data[0].demand_draft_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -1470,6 +1494,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].debit_card_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1481,6 +1507,10 @@ link.remove();
 console.log(data[0].debit_card_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 {
   alert('No file uploaded')
 }
@@ -1620,6 +1650,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_health_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1631,6 +1663,10 @@ link.remove();
 console.log(data[0].insurance_health_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 
 })
@@ -1768,6 +1804,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_cyber_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1779,6 +1817,10 @@ link.remove();
 console.log(data[0].insurance_cyber_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 
 })
@@ -1917,6 +1959,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_home_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -1928,6 +1972,10 @@ link.remove();
 console.log(data[0].insurance_home_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2065,6 +2113,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_travel_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2076,6 +2126,10 @@ link.remove();
 console.log(data[0].insurance_travel_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2213,6 +2267,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_car_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2224,6 +2280,10 @@ link.remove();
 console.log(data[0].insurance_car_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })
@@ -2360,6 +2420,8 @@ headers:{
 return response.json();
 }).then((data)=>{
   if(data.length!=0)
+       {
+      if(data[data.length-1].insurance_bike_main_url)
 {
 var link = document.createElement('a');
 link.target = '_blank';
@@ -2371,6 +2433,10 @@ link.remove();
 console.log(data[0].insurance_bike_main_url)
 }
 else
+alert('No file uploaded')
+}
+else
+
 alert('No file uploaded')
 })
 })

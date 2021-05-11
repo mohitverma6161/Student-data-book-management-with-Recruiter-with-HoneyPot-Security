@@ -479,6 +479,7 @@ a[href]:after {
                 })
             });
             </script>
+			<div id="DoNotShow">
 <div id="one">
 	<div class="container-contact100">
 		<div class="wrap-contact100">
@@ -1070,7 +1071,7 @@ a[href]:after {
 
 	
 			</div>
-
+		</div>
 			<script>
 				$(document).ready(function() {
 					$('#button1').click(function() {
@@ -1110,8 +1111,30 @@ a[href]:after {
 			</script>
 			<script>
 				$(document).ready(function () {
-	$('#submit').click(function () {
+	
 
+		fetch("/info",{
+                      method:"get",
+                      headers:{
+                        'Accept': 'application/json',
+                          'Content-Type':'application/json',
+                          'Authorization': `Bearer ${localStorage.getItem('token')}`
+                      },
+
+                  }).then((response)=>{
+                      return response.json();
+                  }).then(data=>{
+                      console.log(data);
+					  if(data[0].email)
+					  {
+						document.getElementById('DoNotShow').style.display = "none";
+
+ 
+            document.body.style.backgroundImage = "url('Thank.jpg')";
+			document.body.style.backgroundSize="cover";
+					  }
+					  else{
+						$('#submit').click(function () {
 		var first_name = $('#first_name').val();
 		var last_name = $('#last_name').val();
 		var email = $('#email').val();
@@ -1191,7 +1214,7 @@ a[href]:after {
 			return false
 		} else {
 		// fetch call
-		fetch("http://localhost:3000/info", {
+		fetch("/info", {
 			method: "post",
 			headers: {
 				'Content-Type': 'application/json',
@@ -1285,9 +1308,13 @@ a[href]:after {
                         // }
 						alert('You have entered data successfully');
                     })
+				}
+			})
+			}
 			
+		
 
-		}
+		
 	})
 });
 

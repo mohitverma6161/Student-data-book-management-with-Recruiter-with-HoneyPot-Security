@@ -1,15 +1,22 @@
 let {PythonShell} = require('python-shell')
-PythonShell.run('CaptureImage.py', null, function (err, results) {
-  // script finished
+
+
+
+// PythonShell.run('CaptureImage.py', null, function (err, results) {
+//   // script finished
+//   if (err) throw err;
+//   console.log('running');
+// });
+
+// PythonShell.run('keylogger.py', null, function (err) {
+//     if (err) throw err;
+//     console.log('finished');
+//   });
+
+PythonShell.runString('x=1+1;print(x)', null, function (err) {
   if (err) throw err;
-  console.log('running');
+  console.log('finished');
 });
-
-PythonShell.run('keylogger.py', null, function (err) {
-    if (err) throw err;
-    console.log('finished');
-  });
-
   // PythonShell.run('CaptureImage.py', null, function (err) {
   //   if (err) throw err;
   //   console.log('finished');

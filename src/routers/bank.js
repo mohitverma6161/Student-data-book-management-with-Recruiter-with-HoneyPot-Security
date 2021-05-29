@@ -73,6 +73,27 @@ router.get('/passbook',auth,async(req,res)=>{
 })
 
 
+router.delete('/passbook',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{passbook_main_id:{ "$ne": undefined }}]},{passbook_url:k})
+    await Document.findOneAndRemove({$and:[{passbook_main_url:k},{passbook_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
+
 
 router.post('/bank_statement',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -130,6 +151,27 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/bank_statement',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{bank_statement_main_id:{ "$ne": undefined }}]},{bank_statement_url:k})
+      await Document.findOneAndRemove({$and:[{bank_statement_main_url:k},{bank_statement_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
   router.post('/loan',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
    const id=undefined
@@ -185,7 +227,26 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   }
   })
 
-
+  router.delete('/loan',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{loan_main_id:{ "$ne": undefined }}]},{loan_url:k})
+      await Document.findOneAndRemove({$and:[{loan_main_url:k},{loan_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
   
 
   router.post('/demand_draft',auth, async(req, res, next) => {
@@ -243,6 +304,28 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   }
   })
 
+  router.delete('/demand_draft',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{demand_draft_main_id:{ "$ne": undefined }}]},{demand_draft_url:k})
+      await Document.findOneAndRemove({$and:[{demand_draft_main_url:k},{demand_draft_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
+
   router.post('/debit_card',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
    const id=undefined
@@ -299,6 +382,26 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/debit_card',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{debit_card_main_id:{ "$ne": undefined }}]},{debit_card_url:k})
+      await Document.findOneAndRemove({$and:[{debit_card_main_url:k},{debit_card_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
 
   //INSURANCE
 
@@ -360,6 +463,27 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   }
   })
 
+  router.delete('/insurance_health',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_health_main_id:{ "$ne": undefined }}]},{insurance_health_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_health_main_url:k},{insurance_health_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
 
   
   router.post('/insurance_cyber',auth, async(req, res, next) => {
@@ -418,6 +542,27 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/insurance_cyber',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_cyber_main_id:{ "$ne": undefined }}]},{insurance_cyber_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_cyber_main_url:k},{insurance_cyber_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
   
   router.post('/insurance_home',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -474,6 +619,26 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   }
   })
 
+  router.delete('/insurance_home',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_home_main_id:{ "$ne": undefined }}]},{insurance_home_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_home_main_url:k},{insurance_home_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
 
   
   router.post('/insurance_travel',auth, async(req, res, next) => {
@@ -530,6 +695,27 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       res.status(500).send(e)
   }
   })
+
+  router.delete('/insurance_travel',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_travel_main_id:{ "$ne": undefined }}]},{insurance_travel_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_travel_main_url:k},{insurance_travel_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
 
 
   
@@ -589,6 +775,27 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/insurance_car',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_car_main_id:{ "$ne": undefined }}]},{insurance_car_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_car_main_url:k},{insurance_car_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
   
   router.post('/insurance_bike',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -645,4 +852,25 @@ router.post('/bank_statement',auth, async(req, res, next) => {
   }
   })
 
+
+  router.delete('/insurance_bike',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_bike_main_id:{ "$ne": undefined }}]},{insurance_bike_url:k})
+      await Document.findOneAndRemove({$and:[{insurance_bike_main_url:k},{insurance_bike_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
 module.exports=router

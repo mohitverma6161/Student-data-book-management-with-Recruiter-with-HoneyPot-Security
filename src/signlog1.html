@@ -226,20 +226,7 @@ $(document).ready(function () {
 				   if(count!=0)
 					alert('e-mail or password Wrong! Please re-enter\n'+count+' attempts left')
 					else{
-						fetch("/users/security",{
-         method:"get",
-         headers:{
-           'Accept': 'application/json',
-                               'Content-Type':'application/json',
-                               
-         },
-       }).then((response)=>{
-         return response.json();
-       }).then((data)=>
-	   {
-		   alert(data);
-		   window.location.href='signlog1.html'
-	   })
+				 alert('You are caught!')
 					}
 				}
 			})

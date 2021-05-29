@@ -73,6 +73,26 @@ router.get('/self_photo',auth,async(req,res)=>{
 })
 
 
+router.delete('/self_photo',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{self_photo_main_id:{ "$ne": undefined }}]},{self_photo_url:k})
+    await Document.findOneAndRemove({$and:[{self_photo_main_url:k},{self_photo_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 router.post('/father_photo',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -129,6 +149,27 @@ router.post('/father_photo',auth, async(req, res, next) => {
   }
   })
   
+
+  router.delete('/father_photo',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{father_photo_main_id:{ "$ne": undefined }}]},{father_photo_url:k})
+      await Document.findOneAndRemove({$and:[{father_photo_main_url:k},{father_photo_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
   
 router.post('/mother_photo',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -185,6 +226,27 @@ router.post('/mother_photo',auth, async(req, res, next) => {
   }
   })
   
+
+  router.delete('/mother_photo',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{mother_photo_main_id:{ "$ne": undefined }}]},{mother_photo_url:k})
+      await Document.findOneAndRemove({$and:[{mother_photo_main_url:k},{mother_photo_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
   
 router.post('/brother_photo',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
@@ -241,6 +303,26 @@ router.post('/brother_photo',auth, async(req, res, next) => {
   }
   })
   
+  router.delete('/brother_photo',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{brother_photo_main_id:{ "$ne": undefined }}]},{brother_photo_url:k})
+      await Document.findOneAndRemove({$and:[{brother_photo_main_url:k},{brother_photo_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
   
   
 router.post('/sister_photo',auth, async(req, res, next) => {
@@ -299,7 +381,26 @@ router.post('/sister_photo',auth, async(req, res, next) => {
   })
   
   
+  router.delete('/sister_photo',auth,async(req,res)=>{
   
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{sister_photo_main_id:{ "$ne": undefined }}]},{sister_photo_url:k})
+      await Document.findOneAndRemove({$and:[{sister_photo_main_url:k},{sister_photo_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
   
   
 

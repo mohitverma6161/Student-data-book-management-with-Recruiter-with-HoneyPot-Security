@@ -947,13 +947,13 @@ alert('No file uploaded')
 $(document).ready(function () {
                   $('#delete1').click(function () {
         fetch("/x_migration",{
-       method:"delete",
+       method:"DELETE",
        headers:{
-         
+        
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
        },
      }).then((response)=>{
-       return response.json();
+       return response.text();
      }).then((data)=>{
        console.log(data);
      })
@@ -1101,7 +1101,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete2').click(function () {
 fetch("/x_passing",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1253,7 +1253,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete3').click(function () {
 fetch("/x_passing",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1408,7 +1408,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete4').click(function () {
 fetch("/x_skill",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1561,7 +1561,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete5').click(function () {
 fetch("/xii_migration",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1716,7 +1716,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete6').click(function () {
 fetch("/xii_passing",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1870,7 +1870,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete7').click(function () {
 fetch("/xii_marksheet",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -2025,7 +2025,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete8').click(function () {
 fetch("/xii_skill",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -2180,7 +2180,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete9').click(function () {
 fetch("/teacher_marksheet",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -2335,7 +2335,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete10').click(function () {
 fetch("/teacher_certificate",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -2489,7 +2489,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete11').click(function () {
 fetch("/ug",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -2643,7 +2643,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete12').click(function () {
 fetch("/pg",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,

@@ -66,9 +66,31 @@ router.post('/x_migration',auth, async(req, res, next) => {
 router.get('/x_migration',auth,async(req,res)=>{
   try{
     const document=await Document.find({owner:req.user._id})
+    
     res.status(200).send(document)
 }catch(e){
     res.status(500).send(e)
+}
+})
+
+router.delete('/x_migration',auth,async(req,res)=>{
+  
+// try{
+// Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+// res.send('done')
+// }catch(e){
+//     console.log('4')
+//       res.status(500).send(e)
+//   }
+try{
+  const k=Math.random()
+  console.log(k)
+  
+  await Document.findOneAndUpdate({$and:[{owner:req.user._id},{x_migration_main_id:{ "$ne": undefined }}]},{x_migration_main_url:k})
+  await Document.findOneAndRemove({$and:[{x_migration_main_url:k},{x_migration_main_id:{ "$ne": undefined }}]})
+  res.send('done')
+}catch(e){
+  res.status(500).send(e)
 }
 })
 
@@ -128,6 +150,26 @@ router.get('/x_passing',auth,async(req,res)=>{
 }
 })
 
+router.delete('/x_passing',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{x_passing_main_id:{ "$ne": undefined }}]},{x_passing_url:k})
+    await Document.findOneAndRemove({$and:[{x_passing_main_url:k},{x_passing_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 
 router.post('/x_marksheet',auth, async(req, res, next) => {
@@ -185,6 +227,27 @@ router.get('/x_marksheet',auth,async(req,res)=>{
 }
 })
 
+router.delete('/x_marksheet',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{x_marksheet_main_id:{ "$ne": undefined }}]},{x_marksheet_url:k})
+    await Document.findOneAndRemove({$and:[{x_marksheet_main_url:k},{x_marksheet_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
+
 
 router.post('/x_skill',auth, async(req, res, next) => {
   const upload = multer({ storage }).single('image')
@@ -241,7 +304,26 @@ router.get('/x_skill',auth,async(req,res)=>{
 }
 })
 
-
+router.delete('/x_skill',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{x_skill_main_id:{ "$ne": undefined }}]},{x_skill_url:k})
+    await Document.findOneAndRemove({$and:[{x_skill_main_url:k},{x_skill_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 
 
@@ -310,6 +392,27 @@ router.get('/xii_migration',auth,async(req,res)=>{
 })
 
 
+router.delete('/xii_migration',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{xii_migration_main_id:{ "$ne": undefined }}]},{xii_migration_url:k})
+    await Document.findOneAndRemove({$and:[{xii_migration_main_url:k},{xii_migration_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
+
 router.post('/xii_passing',auth, async(req, res, next) => {
   const upload = multer({ storage }).single('image')
  const id=undefined
@@ -365,6 +468,27 @@ router.get('/xii_passing',auth,async(req,res)=>{
 }
 })
 
+
+router.delete('/xii_passing',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{xii_passing_main_id:{ "$ne": undefined }}]},{xii_passing_url:k})
+    await Document.findOneAndRemove({$and:[{xii_passing_main_url:k},{xii_passing_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 
 router.post('/xii_marksheet',auth, async(req, res, next) => {
@@ -422,6 +546,26 @@ router.get('/xii_marksheet',auth,async(req,res)=>{
 }
 })
 
+router.delete('/xii_marksheet',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{xii_marksheet_main_id:{ "$ne": undefined }}]},{xii_marksheet_url:k})
+    await Document.findOneAndRemove({$and:[{xii_marksheet_main_url:k},{xii_marksheet_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 router.post('/xii_skill',auth, async(req, res, next) => {
   const upload = multer({ storage }).single('image')
@@ -478,7 +622,26 @@ router.get('/xii_skill',auth,async(req,res)=>{
 }
 })
 
-
+router.delete('/xii_skill',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{xii_skill_main_id:{ "$ne": undefined }}]},{xii_skill_url:k})
+    await Document.findOneAndRemove({$and:[{xii_skill_main_url:k},{xii_skill_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 //TEACHER
 
@@ -538,7 +701,26 @@ router.get('/teacher_marksheet',auth,async(req,res)=>{
 }
 })
 
-
+router.delete('/teacher_marksheet',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{teacher_marksheet_main_id:{ "$ne": undefined }}]},{teacher_marksheet_url:k})
+    await Document.findOneAndRemove({$and:[{teacher_marksheet_main_url:k},{teacher_marksheet_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 router.post('/teacher_certificate',auth, async(req, res, next) => {
   const upload = multer({ storage }).single('image')
@@ -595,6 +777,27 @@ router.get('/teacher_certificate',auth,async(req,res)=>{
 }
 })
 
+
+router.delete('/teacher_certificate',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{teacher_certificate_main_id:{ "$ne": undefined }}]},{teacher_certificate_url:k})
+    await Document.findOneAndRemove({$and:[{teacher_certificate_main_url:k},{teacher_certificate_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 // UG DETAILS
 
@@ -655,7 +858,26 @@ router.get('/ug',auth,async(req,res)=>{
 }
 })
 
-
+router.delete('/ug',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{ug_main_id:{ "$ne": undefined }}]},{ug_url:k})
+    await Document.findOneAndRemove({$and:[{ug_main_url:k},{ug_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 //PG DETAILS
 
 
@@ -714,5 +936,26 @@ router.get('/pg',auth,async(req,res)=>{
 }
 })
 
+
+router.delete('/pg',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pg_main_id:{ "$ne": undefined }}]},{pg_url:k})
+    await Document.findOneAndRemove({$and:[{pg_main_url:k},{pg_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 module.exports=router

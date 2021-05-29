@@ -1125,7 +1125,8 @@ a[href]:after {
                       return response.json();
                   }).then(data=>{
                       console.log(data);
-					  if(data[0].email)
+					  
+					  if(data.length!=0)
 					  {
 						document.getElementById('DoNotShow').style.display = "none";
 

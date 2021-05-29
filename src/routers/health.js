@@ -72,6 +72,26 @@ router.get('/clinical',auth,async(req,res)=>{
 }
 })
 
+router.delete('/clinical',auth,async(req,res)=>{
+  
+  // try{
+  // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+  // res.send('done')
+  // }catch(e){
+  //     console.log('4')
+  //       res.status(500).send(e)
+  //   }
+  try{
+    const k=Math.random()
+    console.log(k)
+    
+    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{clinical_main_id:{ "$ne": undefined }}]},{clinical_url:k})
+    await Document.findOneAndRemove({$and:[{clinical_main_url:k},{clinical_main_id:{ "$ne": undefined }}]})
+    res.send('done')
+  }catch(e){
+    res.status(500).send(e)
+  }
+  })
 
 
 
@@ -131,6 +151,27 @@ router.post('/covid',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/covid',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{covid_main_id:{ "$ne": undefined }}]},{covid_url:k})
+      await Document.findOneAndRemove({$and:[{covid_main_url:k},{covid_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
   router.post('/health_id_card',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
    const id=undefined
@@ -187,6 +228,27 @@ router.post('/covid',auth, async(req, res, next) => {
   })
 
 
+  router.delete('/health_id_card',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{health_id_card_main_id:{ "$ne": undefined }}]},{health_id_card_url:k})
+      await Document.findOneAndRemove({$and:[{health_id_card_main_url:k},{health_id_card_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
+
   router.post('/pharmacist',auth, async(req, res, next) => {
     const upload = multer({ storage }).single('image')
    const id=undefined
@@ -242,6 +304,27 @@ router.post('/covid',auth, async(req, res, next) => {
   }
   })
 
+
+  router.delete('/pharmacist',auth,async(req,res)=>{
+  
+    // try{
+    // Device.updateMany({"owner":req.user._id},{"$set":{"x_migration_main_url":null}});
+    // res.send('done')
+    // }catch(e){
+    //     console.log('4')
+    //       res.status(500).send(e)
+    //   }
+    try{
+      const k=Math.random()
+      console.log(k)
+      
+      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pharmacist_main_id:{ "$ne": undefined }}]},{pharmacist_url:k})
+      await Document.findOneAndRemove({$and:[{pharmacist_main_url:k},{pharmacist_main_id:{ "$ne": undefined }}]})
+      res.send('done')
+    }catch(e){
+      res.status(500).send(e)
+    }
+    })
 
   
 

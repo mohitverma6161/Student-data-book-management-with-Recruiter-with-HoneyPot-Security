@@ -671,7 +671,7 @@ alert('No file uploaded')
 $(document).ready(function () {
                   $('#delete1').click(function () {
         fetch("/clinical",{
-       method:"delete",
+       method:"DELETE",
        headers:{
          
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -830,7 +830,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete2').click(function () {
 fetch("/covid",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -982,7 +982,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete3').click(function () {
 fetch("/health_id_card",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -1137,7 +1137,7 @@ alert('No file uploaded')
 $(document).ready(function () {
      $('#delete4').click(function () {
 fetch("/pharmacist",{
-method:"delete",
+method:"DELETE",
 headers:{
 
 'Authorization': `Bearer ${localStorage.getItem('token')}`,

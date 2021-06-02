@@ -86,8 +86,8 @@ router.delete('/passbook',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{passbook_main_id:{ "$ne": undefined }}]},{passbook_url:k})
-    await Document.findOneAndRemove({$and:[{passbook_main_url:k},{passbook_main_id:{ "$ne": undefined }}]})
+    await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{passbook_main_id:{ "$ne": undefined }}]},{passbook_main_url:k})
+    await Bank.findOneAndRemove({$and:[{passbook_main_url:k},{passbook_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -164,8 +164,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{bank_statement_main_id:{ "$ne": undefined }}]},{bank_statement_url:k})
-      await Document.findOneAndRemove({$and:[{bank_statement_main_url:k},{bank_statement_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{bank_statement_main_id:{ "$ne": undefined }}]},{bank_statement_main_url:k})
+      await Bank.findOneAndRemove({$and:[{bank_statement_main_url:k},{bank_statement_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -240,8 +240,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{loan_main_id:{ "$ne": undefined }}]},{loan_url:k})
-      await Document.findOneAndRemove({$and:[{loan_main_url:k},{loan_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{loan_main_id:{ "$ne": undefined }}]},{loan_main_url:k})
+      await Bank.findOneAndRemove({$and:[{loan_main_url:k},{loan_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -317,8 +317,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{demand_draft_main_id:{ "$ne": undefined }}]},{demand_draft_url:k})
-      await Document.findOneAndRemove({$and:[{demand_draft_main_url:k},{demand_draft_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{demand_draft_main_id:{ "$ne": undefined }}]},{demand_draft_main_url:k})
+      await Bank.findOneAndRemove({$and:[{demand_draft_main_url:k},{demand_draft_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -395,8 +395,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{debit_card_main_id:{ "$ne": undefined }}]},{debit_card_url:k})
-      await Document.findOneAndRemove({$and:[{debit_card_main_url:k},{debit_card_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{debit_card_main_id:{ "$ne": undefined }}]},{debit_card_main_url:k})
+      await Bank.findOneAndRemove({$and:[{debit_card_main_url:k},{debit_card_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -476,8 +476,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_health_main_id:{ "$ne": undefined }}]},{insurance_health_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_health_main_url:k},{insurance_health_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_health_main_id:{ "$ne": undefined }}]},{insurance_health_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_health_main_url:k},{insurance_health_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -555,8 +555,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_cyber_main_id:{ "$ne": undefined }}]},{insurance_cyber_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_cyber_main_url:k},{insurance_cyber_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_cyber_main_id:{ "$ne": undefined }}]},{insurance_cyber_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_cyber_main_url:k},{insurance_cyber_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -632,8 +632,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_home_main_id:{ "$ne": undefined }}]},{insurance_home_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_home_main_url:k},{insurance_home_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_home_main_id:{ "$ne": undefined }}]},{insurance_home_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_home_main_url:k},{insurance_home_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -709,8 +709,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_travel_main_id:{ "$ne": undefined }}]},{insurance_travel_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_travel_main_url:k},{insurance_travel_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_travel_main_id:{ "$ne": undefined }}]},{insurance_travel_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_travel_main_url:k},{insurance_travel_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -788,8 +788,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_car_main_id:{ "$ne": undefined }}]},{insurance_car_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_car_main_url:k},{insurance_car_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_car_main_id:{ "$ne": undefined }}]},{insurance_car_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_car_main_url:k},{insurance_car_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -866,8 +866,8 @@ router.post('/bank_statement',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_bike_main_id:{ "$ne": undefined }}]},{insurance_bike_url:k})
-      await Document.findOneAndRemove({$and:[{insurance_bike_main_url:k},{insurance_bike_main_id:{ "$ne": undefined }}]})
+      await Bank.findOneAndUpdate({$and:[{owner:req.user._id},{insurance_bike_main_id:{ "$ne": undefined }}]},{insurance_bike_main_url:k})
+      await Bank.findOneAndRemove({$and:[{insurance_bike_main_url:k},{insurance_bike_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)

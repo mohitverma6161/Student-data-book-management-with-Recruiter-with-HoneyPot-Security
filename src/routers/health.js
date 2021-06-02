@@ -85,8 +85,8 @@ router.delete('/clinical',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{clinical_main_id:{ "$ne": undefined }}]},{clinical_url:k})
-    await Document.findOneAndRemove({$and:[{clinical_main_url:k},{clinical_main_id:{ "$ne": undefined }}]})
+    await Health.findOneAndUpdate({$and:[{owner:req.user._id},{clinical_main_id:{ "$ne": undefined }}]},{clinical_main_url:k})
+    await Health.findOneAndRemove({$and:[{clinical_main_url:k},{clinical_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -164,8 +164,8 @@ router.post('/covid',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{covid_main_id:{ "$ne": undefined }}]},{covid_url:k})
-      await Document.findOneAndRemove({$and:[{covid_main_url:k},{covid_main_id:{ "$ne": undefined }}]})
+      await Health.findOneAndUpdate({$and:[{owner:req.user._id},{covid_main_id:{ "$ne": undefined }}]},{covid_main_url:k})
+      await Health.findOneAndRemove({$and:[{covid_main_url:k},{covid_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -241,8 +241,8 @@ router.post('/covid',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{health_id_card_main_id:{ "$ne": undefined }}]},{health_id_card_url:k})
-      await Document.findOneAndRemove({$and:[{health_id_card_main_url:k},{health_id_card_main_id:{ "$ne": undefined }}]})
+      await Health.findOneAndUpdate({$and:[{owner:req.user._id},{health_id_card_main_id:{ "$ne": undefined }}]},{health_id_card_main_url:k})
+      await Health.findOneAndRemove({$and:[{health_id_card_main_url:k},{health_id_card_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -318,8 +318,8 @@ router.post('/covid',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pharmacist_main_id:{ "$ne": undefined }}]},{pharmacist_url:k})
-      await Document.findOneAndRemove({$and:[{pharmacist_main_url:k},{pharmacist_main_id:{ "$ne": undefined }}]})
+      await Health.findOneAndUpdate({$and:[{owner:req.user._id},{pharmacist_main_id:{ "$ne": undefined }}]},{pharmacist_main_url:k})
+      await Health.findOneAndRemove({$and:[{pharmacist_main_url:k},{pharmacist_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)

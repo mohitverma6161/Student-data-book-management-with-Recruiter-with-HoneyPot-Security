@@ -7,6 +7,7 @@ const auth=require('../middleware/auth1')
 const jwt=require('jsonwebtoken')
 const {sendWelcomeEmail,sendCancelationEmail}=require('../emails/account')
 const router=new express.Router()
+let {PythonShell} = require('python-shell')
 
 router.post('/recruiteruser',async(req,res)=>{
     const userNew=new RecruiterUser(req.body)
@@ -16,7 +17,7 @@ router.post('/recruiteruser',async(req,res)=>{
         console.log(userNew)
         //sendWelcomeEmail(user.email,user.name)
         const user=await RecruiterUser.findByCredentials(req.body.email,req.body.password)
-        console.log('bhadwa')
+        
         console.log(user)
         const token = jwt.sign({_id:user._id.toString()}, process.env.JWT_SECRET);
         console.log(token)

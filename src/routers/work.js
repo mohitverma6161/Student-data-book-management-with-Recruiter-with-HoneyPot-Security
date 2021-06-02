@@ -85,8 +85,8 @@ router.delete('/offer_letter',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{offer_letter_main_id:{ "$ne": undefined }}]},{offer_letter_url:k})
-    await Document.findOneAndRemove({$and:[{offer_letter_main_url:k},{offer_letter_main_id:{ "$ne": undefined }}]})
+    await Work.findOneAndUpdate({$and:[{owner:req.user._id},{offer_letter_main_id:{ "$ne": undefined }}]},{offer_letter_main_url:k})
+    await Work.findOneAndRemove({$and:[{offer_letter_main_url:k},{offer_letter_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -161,8 +161,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pay_slip_main_id:{ "$ne": undefined }}]},{pay_slip_url:k})
-      await Document.findOneAndRemove({$and:[{pay_slip_main_url:k},{pay_slip_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{pay_slip_main_id:{ "$ne": undefined }}]},{pay_slip_main_url:k})
+      await Work.findOneAndRemove({$and:[{pay_slip_main_url:k},{pay_slip_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -238,8 +238,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{non_disclosure_main_id:{ "$ne": undefined }}]},{non_disclosure_url:k})
-      await Document.findOneAndRemove({$and:[{non_disclosure_main_url:k},{non_disclosure_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{non_disclosure_main_id:{ "$ne": undefined }}]},{non_disclosure_main_url:k})
+      await Work.findOneAndRemove({$and:[{non_disclosure_main_url:k},{non_disclosure_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -314,8 +314,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{uan_card_main_id:{ "$ne": undefined }}]},{uan_card_url:k})
-      await Document.findOneAndRemove({$and:[{uan_card_main_url:k},{uan_card_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{uan_card_main_id:{ "$ne": undefined }}]},{uan_card_main_url:k})
+      await Work.findOneAndRemove({$and:[{uan_card_main_url:k},{uan_card_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -391,8 +391,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pension_main_id:{ "$ne": undefined }}]},{pension_url:k})
-      await Document.findOneAndRemove({$and:[{pension_main_url:k},{pension_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{pension_main_id:{ "$ne": undefined }}]},{pension_main_url:k})
+      await Work.findOneAndRemove({$and:[{pension_main_url:k},{pension_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -468,8 +468,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{skill_certificate_main_id:{ "$ne": undefined }}]},{skill_certificate_url:k})
-      await Document.findOneAndRemove({$and:[{skill_certificate_main_url:k},{skill_certificate_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{skill_certificate_main_id:{ "$ne": undefined }}]},{skill_certificate_main_url:k})
+      await Work.findOneAndRemove({$and:[{skill_certificate_main_url:k},{skill_certificate_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -545,8 +545,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{itr_main_id:{ "$ne": undefined }}]},{itr_url:k})
-      await Document.findOneAndRemove({$and:[{itr_main_url:k},{itr_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{itr_main_id:{ "$ne": undefined }}]},{itr_main_url:k})
+      await Work.findOneAndRemove({$and:[{itr_main_url:k},{itr_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -622,8 +622,8 @@ router.post('/pay_slip',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{resume_main_id:{ "$ne": undefined }}]},{resume_url:k})
-      await Document.findOneAndRemove({$and:[{resume_main_url:k},{resume_main_id:{ "$ne": undefined }}]})
+      await Work.findOneAndUpdate({$and:[{owner:req.user._id},{resume_main_id:{ "$ne": undefined }}]},{resume_main_url:k})
+      await Work.findOneAndRemove({$and:[{resume_main_url:k},{resume_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)

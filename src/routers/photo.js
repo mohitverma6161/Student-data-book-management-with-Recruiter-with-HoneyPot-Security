@@ -86,8 +86,8 @@ router.delete('/self_photo',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{self_photo_main_id:{ "$ne": undefined }}]},{self_photo_url:k})
-    await Document.findOneAndRemove({$and:[{self_photo_main_url:k},{self_photo_main_id:{ "$ne": undefined }}]})
+    await Photo.findOneAndUpdate({$and:[{owner:req.user._id},{self_photo_main_id:{ "$ne": undefined }}]},{self_photo_main_url:k})
+    await Photo.findOneAndRemove({$and:[{self_photo_main_url:k},{self_photo_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -163,8 +163,8 @@ router.post('/father_photo',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{father_photo_main_id:{ "$ne": undefined }}]},{father_photo_url:k})
-      await Document.findOneAndRemove({$and:[{father_photo_main_url:k},{father_photo_main_id:{ "$ne": undefined }}]})
+      await Photo.findOneAndUpdate({$and:[{owner:req.user._id},{father_photo_main_id:{ "$ne": undefined }}]},{father_photo_main_url:k})
+      await Photo.findOneAndRemove({$and:[{father_photo_main_url:k},{father_photo_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -240,8 +240,8 @@ router.post('/mother_photo',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{mother_photo_main_id:{ "$ne": undefined }}]},{mother_photo_url:k})
-      await Document.findOneAndRemove({$and:[{mother_photo_main_url:k},{mother_photo_main_id:{ "$ne": undefined }}]})
+      await Photo.findOneAndUpdate({$and:[{owner:req.user._id},{mother_photo_main_id:{ "$ne": undefined }}]},{mother_photo_main_url:k})
+      await Photo.findOneAndRemove({$and:[{mother_photo_main_url:k},{mother_photo_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -316,8 +316,8 @@ router.post('/brother_photo',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{brother_photo_main_id:{ "$ne": undefined }}]},{brother_photo_url:k})
-      await Document.findOneAndRemove({$and:[{brother_photo_main_url:k},{brother_photo_main_id:{ "$ne": undefined }}]})
+      await Photo.findOneAndUpdate({$and:[{owner:req.user._id},{brother_photo_main_id:{ "$ne": undefined }}]},{brother_photo_main_url:k})
+      await Photo.findOneAndRemove({$and:[{brother_photo_main_url:k},{brother_photo_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -394,8 +394,8 @@ router.post('/sister_photo',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{sister_photo_main_id:{ "$ne": undefined }}]},{sister_photo_url:k})
-      await Document.findOneAndRemove({$and:[{sister_photo_main_url:k},{sister_photo_main_id:{ "$ne": undefined }}]})
+      await Photo.findOneAndUpdate({$and:[{owner:req.user._id},{sister_photo_main_id:{ "$ne": undefined }}]},{sister_photo_main_url:k})
+      await Photo.findOneAndRemove({$and:[{sister_photo_main_url:k},{sister_photo_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)

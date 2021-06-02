@@ -427,7 +427,7 @@ a[href]:after {
     let html=``;
     data.forEach((ele) => {
           html =
-            html +`<div class="blog-card">      <div class="meta">        <div class="photo" style="background-image: url(project-img.jpg)"></div>        <ul class="details">          <li class="author"><a href="#">${ele.contributers}</a></li>          <li class="fa fa-github">&nbsp;&nbsp;&nbsp;<a href="${ele.github}">Github</a></li>        <li class="tags">            <ul>                            <li><a href="${ele.deploy}">Deploy</a></li>                         </ul>          </li>        </ul>      </div>      <div class="description">        <h1>${ele.title}</h1>        <h2>${ele.contributers}</h2>        <p> ${ele.details}</p>        <p class="read-more">          <a href="#">Read More</a>        </p>      </div>    </div>  <br><br>  `;
+            html +`<div class="blog-card">      <div class="meta">        <div class="photo" style="background-image: url(project-img.jpg)"></div>        <ul class="details">                   <li class="fa fa-github">&nbsp;&nbsp;&nbsp;<a href="//${ele.github}">Github</a></li>        <li class="tags">            <ul>                            <li><a href="//${ele.deploy}">Deploy</a></li>                         </ul>          </li>        </ul>      </div>      <div class="description">        <h1>${ele.title}</h1>        <h2>${ele.contributers}</h2>        <p> ${ele.details}</p>        <p class="read-more">          <a href="#">Read More</a>        </p>      </div>    </div>  <br><br>  `;
           });
           document.getElementById("result").innerHTML = html;
           var blog_length=$(".blog-card").length;

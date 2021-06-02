@@ -85,8 +85,8 @@ router.delete('/aadhar',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{aadhar_main_id:{ "$ne": undefined }}]},{aadhar_url:k})
-    await Document.findOneAndRemove({$and:[{aadhar_main_url:k},{aadhar_main_id:{ "$ne": undefined }}]})
+    await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{aadhar_main_id:{ "$ne": undefined }}]},{aadhar_main_main_url:k})
+    await Govt.findOneAndRemove({$and:[{aadhar_main_url:k},{aadhar_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -164,8 +164,8 @@ router.post('/pan',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{pan_main_id:{ "$ne": undefined }}]},{pan_url:k})
-      await Document.findOneAndRemove({$and:[{pan_main_url:k},{pan_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{pan_main_id:{ "$ne": undefined }}]},{pan_main_url:k})
+      await Govt.findOneAndRemove({$and:[{pan_main_url:k},{pan_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -240,8 +240,8 @@ router.delete('/driving_license',auth,async(req,res)=>{
     const k=Math.random()
     console.log(k)
     
-    await Document.findOneAndUpdate({$and:[{owner:req.user._id},{driving_license_main_id:{ "$ne": undefined }}]},{driving_license_url:k})
-    await Document.findOneAndRemove({$and:[{driving_license_main_url:k},{driving_license_main_id:{ "$ne": undefined }}]})
+    await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{driving_license_main_id:{ "$ne": undefined }}]},{driving_license_main_url:k})
+    await Govt.findOneAndRemove({$and:[{driving_license_main_url:k},{driving_license_main_id:{ "$ne": undefined }}]})
     res.send('done')
   }catch(e){
     res.status(500).send(e)
@@ -316,8 +316,8 @@ router.post('/domicile',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{domicile_main_id:{ "$ne": undefined }}]},{domicile_url:k})
-      await Document.findOneAndRemove({$and:[{domicile_main_url:k},{domicile_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{domicile_main_id:{ "$ne": undefined }}]},{domicile_main_url:k})
+      await Govt.findOneAndRemove({$and:[{domicile_main_url:k},{domicile_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -393,8 +393,8 @@ router.post('/caste',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{caste_main_id:{ "$ne": undefined }}]},{caste_url:k})
-      await Document.findOneAndRemove({$and:[{caste_main_url:k},{caste_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{caste_main_id:{ "$ne": undefined }}]},{caste_main_url:k})
+      await Govt.findOneAndRemove({$and:[{caste_main_url:k},{caste_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -469,8 +469,8 @@ router.post('/birth',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{birth_main_id:{ "$ne": undefined }}]},{birth_url:k})
-      await Document.findOneAndRemove({$and:[{birth_main_url:k},{birth_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{birth_main_id:{ "$ne": undefined }}]},{birth_main_url:k})
+      await Govt.findOneAndRemove({$and:[{birth_main_url:k},{birth_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -548,8 +548,8 @@ router.post('/income_certificate',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{income_certificate_main_id:{ "$ne": undefined }}]},{income_certificate_url:k})
-      await Document.findOneAndRemove({$and:[{income_certificate_main_url:k},{income_certificate_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{income_certificate_main_id:{ "$ne": undefined }}]},{income_certificate_main_url:k})
+      await Govt.findOneAndRemove({$and:[{income_certificate_main_url:k},{income_certificate_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -625,8 +625,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{disabled_main_id:{ "$ne": undefined }}]},{disabled_url:k})
-      await Document.findOneAndRemove({$and:[{disabled_main_url:k},{disabled_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{disabled_main_id:{ "$ne": undefined }}]},{disabled_main_url:k})
+      await Govt.findOneAndRemove({$and:[{disabled_main_url:k},{disabled_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -703,8 +703,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{bike_registration_main_id:{ "$ne": undefined }}]},{bike_registration_url:k})
-      await Document.findOneAndRemove({$and:[{bike_registration_main_url:k},{bike_registration_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{bike_registration_main_id:{ "$ne": undefined }}]},{bike_registration_main_url:k})
+      await Govt.findOneAndRemove({$and:[{bike_registration_main_url:k},{bike_registration_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -780,8 +780,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{car_registration_main_id:{ "$ne": undefined }}]},{car_registration_url:k})
-      await Document.findOneAndRemove({$and:[{car_registration_main_url:k},{car_registration_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{car_registration_main_id:{ "$ne": undefined }}]},{car_registration_main_url:k})
+      await Govt.findOneAndRemove({$and:[{car_registration_main_url:k},{car_registration_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -856,8 +856,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{arm_license_main_id:{ "$ne": undefined }}]},{arm_license_url:k})
-      await Document.findOneAndRemove({$and:[{arm_license_main_url:k},{arm_license_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{arm_license_main_id:{ "$ne": undefined }}]},{arm_license_main_url:k})
+      await Govt.findOneAndRemove({$and:[{arm_license_main_url:k},{arm_license_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -932,8 +932,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{marriage_certificate_main_id:{ "$ne": undefined }}]},{marriage_certificate_url:k})
-      await Document.findOneAndRemove({$and:[{marriage_certificate_main_url:k},{marriage_certificate_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{marriage_certificate_main_id:{ "$ne": undefined }}]},{marriage_certificate_main_url:k})
+      await Govt.findOneAndRemove({$and:[{marriage_certificate_main_url:k},{marriage_certificate_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -1010,8 +1010,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{ration_card_main_id:{ "$ne": undefined }}]},{ration_card_url:k})
-      await Document.findOneAndRemove({$and:[{ration_card_main_url:k},{ration_card_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{ration_card_main_id:{ "$ne": undefined }}]},{ration_card_main_url:k})
+      await Govt.findOneAndRemove({$and:[{ration_card_main_url:k},{ration_card_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -1087,8 +1087,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{voter_id_main_id:{ "$ne": undefined }}]},{voter_id_url:k})
-      await Document.findOneAndRemove({$and:[{voter_id_main_url:k},{voter_id_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{voter_id_main_id:{ "$ne": undefined }}]},{voter_id_main_url:k})
+      await Govt.findOneAndRemove({$and:[{voter_id_main_url:k},{voter_id_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)
@@ -1163,8 +1163,8 @@ router.post('/disabled',auth, async(req, res, next) => {
       const k=Math.random()
       console.log(k)
       
-      await Document.findOneAndUpdate({$and:[{owner:req.user._id},{passport_main_id:{ "$ne": undefined }}]},{passport_url:k})
-      await Document.findOneAndRemove({$and:[{passport_main_url:k},{passport_main_id:{ "$ne": undefined }}]})
+      await Govt.findOneAndUpdate({$and:[{owner:req.user._id},{passport_main_id:{ "$ne": undefined }}]},{passport_main_url:k})
+      await Govt.findOneAndRemove({$and:[{passport_main_url:k},{passport_main_id:{ "$ne": undefined }}]})
       res.send('done')
     }catch(e){
       res.status(500).send(e)

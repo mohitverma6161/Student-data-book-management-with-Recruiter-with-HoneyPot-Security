@@ -163,6 +163,7 @@
 </script> 
 <script>
 $(document).ready(function () {
+	let count=3;
 	$('#signInButton').click(function () {
 
 		var email = $('#email').val();
@@ -217,7 +218,26 @@ $(document).ready(function () {
 				if (data.token) {
 					window.location.href = "light_user_list.html";
 				} else {
-					alert('e-mail or password Wrong! Please re-enter\n'+count+' attempts left')
+					count--;
+					console.log(count);
+					if(count!=0)
+					alert('e-mail or password Wrong! Please re-enter\n'+count+' attempts left');
+					else{
+						fetch("/users/security",{
+         method:"get",
+         headers:{
+           'Accept': 'application/json',
+                               'Content-Type':'application/json',
+                               
+         },
+       }).then((response)=>{
+         return response.json();
+       }).then((data)=>
+	   {
+		   alert(data);
+		   window.location.href='signlog_recruiter.html'
+	   })
+					}
 				}
 			})
 

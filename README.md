@@ -2,7 +2,7 @@
 
 ## Introduction
 
-It is be a web-app which will help students in a
+- It is be a web-app which will help students in a
 college/school to keep his/her data in an organized manner. It is mainly useful for
 educational establishments to manage student data which also facilitates all individual
 associated information for easier navigation on daily basis. The student will provide
@@ -11,7 +11,7 @@ team can navigate to students information upon the permission received. The recr
 can easily search a student and see his/her details. Our easy-to-use, application would
 be used to reduce time, as to concentrate on other skillful practical activities other than
 book worming.
-We also try to implement Honey-Pot like server which will act as a proxy server for
+- We also try to implement Honey-Pot like server which will act as a proxy server for
 any main server. Honey-Pot is used to track the behavior of attacks which are done on
 any main servers. By studying the type of attacks, the system designers design the
 system update in such a way that it may cover all the loopholes in the system. As the
